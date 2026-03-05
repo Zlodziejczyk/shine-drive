@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Button } from '@/components/ui/Button';
-import { VideoGrid, VideoCarousel } from '@/components/ui/VideoCarousel';
+import { VideoCarousel } from '@/components/ui/VideoCarousel';
 import { pexelsVideos, videoCategories } from '@/data/pexels-videos';
 import { cn } from '@/lib/utils';
 
@@ -41,19 +41,16 @@ export function Gallery() {
             </motion.button>
           ))}
         </div>
+      </Container>
 
-        {/* Desktop: grid | Mobile: hidden (carousel below) */}
-        <div className="hidden sm:block">
-          <VideoGrid videos={filtered} />
-        </div>
+      {/* Full-width carousel — bleeds outside Container for edge-to-edge feel */}
+      <div className="px-4 sm:px-6 lg:px-8">
+        <VideoCarousel videos={filtered} />
+      </div>
 
-        {/* Mobile: horizontal scroll carousel */}
-        <div className="sm:hidden">
-          <VideoCarousel videos={filtered} />
-        </div>
-
+      <Container>
         {/* Pexels attribution */}
-        <p className="mt-6 text-center text-xs text-text-dim">
+        <p className="mt-8 text-center text-xs text-text-dim">
           Video's door{' '}
           <a
             href="https://www.pexels.com/@pavel-danilyuk"

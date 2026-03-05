@@ -3,6 +3,7 @@ import { Hero } from '@/components/sections/Hero';
 import { Stats } from '@/components/sections/Stats';
 import { Services } from '@/components/sections/Services';
 import { WhyChooseUs } from '@/components/sections/WhyChooseUs';
+import { VideoShowreel } from '@/components/sections/VideoShowreel';
 import { PricingSection } from '@/components/sections/PricingSection';
 import { Gallery } from '@/components/sections/Gallery';
 import { Reviews } from '@/components/sections/Reviews';
@@ -23,6 +24,7 @@ export default function Home() {
       <Stats />
       <Services />
       <WhyChooseUs />
+      <VideoShowreel />
       <PricingSection />
       <Gallery />
       <Reviews />

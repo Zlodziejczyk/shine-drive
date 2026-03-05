@@ -172,3 +172,6 @@ export const videoCategories = [
 
 /** Best video to use as hero background (long, cinematic) */
 export const heroVideo = pexelsVideos.find((v) => v.id === 6157781)!;
+
+/** Showreel video — dramatic polishing footage for ambient background sections */
+export const showreelVideo = pexelsVideos.find((v) => v.id === 6157968)!;
