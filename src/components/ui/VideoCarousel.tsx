@@ -181,6 +181,7 @@ interface VideoCarouselStripProps {
 function VideoCarouselStrip({ videos, onExpand }: VideoCarouselStripProps) {
   const { t } = useTranslation();
   const scrollRef = useRef<HTMLDivElement>(null);
+  const isPaused = useRef(false);
 
   const scroll = useCallback((direction: 'left' | 'right') => {
     const el = scrollRef.current;
@@ -188,6 +189,41 @@ function VideoCarouselStrip({ videos, onExpand }: VideoCarouselStripProps) {
     const amount = el.clientWidth * 0.7;
     el.scrollBy({ left: direction === 'left' ? -amount : amount, behavior: 'smooth' });
   }, []);
+
+  // Auto-rotate every 5 seconds, pause on hover / manual interaction
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const interval = setInterval(() => {
+      if (isPaused.current) return;
+      const maxScroll = el.scrollWidth - el.clientWidth;
+      if (el.scrollLeft >= maxScroll - 10) {
+        // Loop back to start
+        el.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        // Scroll by one card width
+        const cardWidth = el.querySelector(':scope > div')?.clientWidth ?? el.clientWidth * 0.35;
+        el.scrollBy({ left: cardWidth + 16, behavior: 'smooth' });
+      }
+    }, 5000);
+
+    const pause = () => { isPaused.current = true; };
+    const resume = () => { isPaused.current = false; };
+
+    el.addEventListener('mouseenter', pause);
+    el.addEventListener('mouseleave', resume);
+    el.addEventListener('touchstart', pause, { passive: true });
+    el.addEventListener('touchend', resume);
+
+    return () => {
+      clearInterval(interval);
+      el.removeEventListener('mouseenter', pause);
+      el.removeEventListener('mouseleave', resume);
+      el.removeEventListener('touchstart', pause);
+      el.removeEventListener('touchend', resume);
+    };
+  }, [videos]);
 
   return (
     <div className="relative">
