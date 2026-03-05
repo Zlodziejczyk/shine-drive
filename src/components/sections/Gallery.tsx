@@ -49,20 +49,6 @@ export function Gallery() {
       </div>
 
       <Container>
-        {/* Pexels attribution */}
-        <p className="mt-8 text-center text-xs text-text-dim">
-          Video's door{' '}
-          <a
-            href="https://www.pexels.com/@pavel-danilyuk"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline decoration-text-dim/30 transition-colors hover:text-primary"
-          >
-            Pavel Danilyuk
-          </a>{' '}
-          op Pexels
-        </p>
-
         <div className="mt-10 text-center">
           <Button variant="outline" href="/portfolio">
             Bekijk portfolio →

@@ -1,6 +1,6 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Pause, Volume2, VolumeX, ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react';
+import { Pause, Volume2, VolumeX, ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { PexelsVideo } from '@/data/pexels-videos';
 
@@ -12,8 +12,29 @@ interface VideoCardProps {
 
 function VideoCard({ video, index, onExpand }: VideoCardProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+
+  // Auto-play when card scrolls into view, pause when it leaves
+  useEffect(() => {
+    const el = videoRef.current;
+    const container = containerRef.current;
+    if (!el || !container) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.play().catch(() => {});
+        } else {
+          el.pause();
+        }
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
 
   const togglePlay = useCallback(() => {
     const el = videoRef.current;
@@ -36,77 +57,67 @@ function VideoCard({ video, index, onExpand }: VideoCardProps) {
 
   return (
     <motion.div
+      ref={containerRef}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.5, delay: index * 0.07 }}
-      className="group relative aspect-video overflow-hidden rounded-2xl border border-border bg-surface-card"
+      className="group"
     >
-      <video
-        ref={videoRef}
-        src={video.videoHd}
-        poster={video.poster}
-        muted
-        loop
-        playsInline
-        preload="none"
-        className="h-full w-full object-cover"
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-      />
+      {/* Video container */}
+      <div className="relative aspect-video overflow-hidden rounded-2xl border border-border bg-surface-card">
+        <video
+          ref={videoRef}
+          src={video.videoHd}
+          poster={video.poster}
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          className="h-full w-full object-cover"
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+        />
 
-      {/* Title overlay */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-linear-to-t from-black/80 via-black/40 to-transparent px-4 pb-3 pt-10">
-        <p className="text-sm font-medium text-white">{video.title}</p>
-        <p className="text-xs text-white/60">{video.duration}s</p>
-      </div>
-
-      {/* Play / Pause / Mute / Expand controls */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-        {/* Center play button */}
-        {!isPlaying && (
+        {/* Bottom-right controls (visible on hover) */}
+        <div className="absolute right-2 bottom-2 flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
+          {isPlaying && (
+            <button
+              onClick={togglePlay}
+              className="flex h-8 w-8 items-center justify-center rounded-lg bg-black/60 text-white backdrop-blur-sm transition-colors hover:bg-black/80"
+              aria-label="Pauzeren"
+            >
+              <Pause className="h-4 w-4" />
+            </button>
+          )}
           <button
-            onClick={togglePlay}
-            className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/90 text-white shadow-lg backdrop-blur-sm transition-transform hover:scale-110"
-            aria-label="Afspelen"
-          >
-            <Play className="ml-1 h-6 w-6 fill-white" />
-          </button>
-        )}
-      </div>
-
-      {/* Bottom-right controls (always visible on hover) */}
-      <div className="absolute right-2 bottom-2 flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
-        {isPlaying && (
-          <button
-            onClick={togglePlay}
+            onClick={toggleMute}
             className="flex h-8 w-8 items-center justify-center rounded-lg bg-black/60 text-white backdrop-blur-sm transition-colors hover:bg-black/80"
-            aria-label="Pauzeren"
+            aria-label={isMuted ? 'Geluid aan' : 'Geluid uit'}
           >
-            <Pause className="h-4 w-4" />
+            {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
           </button>
-        )}
-        <button
-          onClick={toggleMute}
-          className="flex h-8 w-8 items-center justify-center rounded-lg bg-black/60 text-white backdrop-blur-sm transition-colors hover:bg-black/80"
-          aria-label={isMuted ? 'Geluid aan' : 'Geluid uit'}
-        >
-          {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
-        </button>
-        <button
-          onClick={() => onExpand(video)}
-          className="flex h-8 w-8 items-center justify-center rounded-lg bg-black/60 text-white backdrop-blur-sm transition-colors hover:bg-black/80"
-          aria-label="Vergroten"
-        >
-          <Maximize2 className="h-4 w-4" />
-        </button>
+          <button
+            onClick={() => onExpand(video)}
+            className="flex h-8 w-8 items-center justify-center rounded-lg bg-black/60 text-white backdrop-blur-sm transition-colors hover:bg-black/80"
+            aria-label="Vergroten"
+          >
+            <Maximize2 className="h-4 w-4" />
+          </button>
+        </div>
+
+        {/* Category badge — stays on top of video */}
+        <div className="absolute top-3 left-3">
+          <span className="rounded-md bg-primary/80 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-white uppercase backdrop-blur-sm">
+            {video.category}
+          </span>
+        </div>
       </div>
 
-      {/* Category badge */}
-      <div className="absolute top-2 left-2">
-        <span className="rounded-md bg-primary/80 px-2 py-0.5 text-[10px] font-semibold tracking-wide text-white uppercase backdrop-blur-sm">
-          {video.category}
-        </span>
+      {/* Title below the video */}
+      <div className="mt-2.5 px-1">
+        <p className="text-sm font-medium text-text">{video.title}</p>
+        <p className="text-xs text-text-dim">{video.duration}s</p>
       </div>
     </motion.div>
   );
@@ -151,14 +162,6 @@ function VideoLightbox({ video, onClose }: { video: PexelsVideo; onClose: () => 
         </button>
         <div className="mt-3 text-center">
           <p className="text-sm font-medium text-white">{video.title}</p>
-          <a
-            href={video.pexelsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs text-text-dim transition-colors hover:text-primary"
-          >
-            Video door Pavel Danilyuk op Pexels
-          </a>
         </div>
       </motion.div>
     </motion.div>
@@ -206,7 +209,7 @@ function VideoCarouselStrip({ videos, onExpand }: VideoCarouselStripProps) {
         className="scrollbar-hide flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2"
       >
         {videos.map((video, i) => (
-          <div key={video.id} className="w-[85vw] flex-shrink-0 snap-start sm:w-[45vw] lg:w-[30vw] xl:w-[23vw]">
+          <div key={video.id} className="w-[88vw] flex-shrink-0 snap-start sm:w-[55vw] lg:w-[38vw] xl:w-[30vw]">
             <VideoCard video={video} index={i} onExpand={onExpand} />
           </div>
         ))}
