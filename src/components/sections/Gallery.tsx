@@ -1,19 +1,20 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Camera } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Button } from '@/components/ui/Button';
-
-const galleryItems = [
-  { id: 1, label: 'Detailing — BMW 3 Serie' },
-  { id: 2, label: 'Full Wrap — Mercedes C-Klasse' },
-  { id: 3, label: 'Interieur Reiniging — Audi A4' },
-  { id: 4, label: 'Lakcorrectie — VW Golf' },
-  { id: 5, label: 'PPF Bescherming — Tesla Model 3' },
-  { id: 6, label: 'Motor Detailing — Ford Mustang' },
-];
+import { VideoGrid, VideoCarousel } from '@/components/ui/VideoCarousel';
+import { pexelsVideos, videoCategories } from '@/data/pexels-videos';
+import { cn } from '@/lib/utils';
 
 export function Gallery() {
+  const [activeFilter, setActiveFilter] = useState<string>('all');
+
+  const filtered =
+    activeFilter === 'all'
+      ? pexelsVideos
+      : pexelsVideos.filter((v) => v.category === activeFilter);
+
   return (
     <section className="relative bg-surface-light py-20 md:py-28">
       <Container>
@@ -22,33 +23,48 @@ export function Gallery() {
           subtitle="Van vuil naar showroom — bekijk de transformaties"
         />
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {galleryItems.map((item, i) => (
-            <motion.div
-              key={item.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              whileHover={{ scale: 1.03 }}
-              className="group relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-surface-card to-surface-hover"
+        {/* Category filter tabs */}
+        <div className="mb-10 flex flex-wrap justify-center gap-2">
+          {videoCategories.map((cat) => (
+            <motion.button
+              key={cat.key}
+              onClick={() => setActiveFilter(cat.key)}
+              whileTap={{ scale: 0.95 }}
+              className={cn(
+                'rounded-full px-4 py-2 text-sm font-medium transition-all duration-200',
+                activeFilter === cat.key
+                  ? 'bg-primary text-white shadow-lg shadow-primary/25'
+                  : 'border border-border bg-surface-card text-text-muted hover:border-primary/40 hover:text-text'
+              )}
             >
-              {/* Placeholder content */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-4">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-                  <Camera className="h-8 w-8 text-primary" />
-                </div>
-                <div className="text-center">
-                  <p className="text-sm font-medium text-text">{item.label}</p>
-                  <p className="mt-1 text-xs text-text-dim">Before / After</p>
-                </div>
-              </div>
-              {/* Hover overlay */}
-              <div className="absolute inset-0 bg-primary/0 transition-colors duration-300 group-hover:bg-primary/10" />
-              {/* TODO: Replace with actual before/after images */}
-            </motion.div>
+              {cat.label}
+            </motion.button>
           ))}
         </div>
+
+        {/* Desktop: grid | Mobile: hidden (carousel below) */}
+        <div className="hidden sm:block">
+          <VideoGrid videos={filtered} />
+        </div>
+
+        {/* Mobile: horizontal scroll carousel */}
+        <div className="sm:hidden">
+          <VideoCarousel videos={filtered} />
+        </div>
+
+        {/* Pexels attribution */}
+        <p className="mt-6 text-center text-xs text-text-dim">
+          Video's door{' '}
+          <a
+            href="https://www.pexels.com/@pavel-danilyuk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-text-dim/30 transition-colors hover:text-primary"
+          >
+            Pavel Danilyuk
+          </a>{' '}
+          op Pexels
+        </p>
 
         <div className="mt-10 text-center">
           <Button variant="outline" href="/portfolio">
