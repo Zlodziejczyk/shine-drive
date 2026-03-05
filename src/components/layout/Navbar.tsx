@@ -2,15 +2,27 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { navLinks } from '@/data/navigation';
+import { useTranslation } from 'react-i18next';
+import { cn, getWhatsAppUrl } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
-import { WHATSAPP_URL } from '@/lib/utils';
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
+
+const navLinks = [
+  { key: 'nav.home', href: '/' },
+  { key: 'nav.services', href: '/diensten' },
+  { key: 'nav.packages', href: '/pakketten' },
+  { key: 'nav.portfolio', href: '/portfolio' },
+  { key: 'nav.about', href: '/over-ons' },
+  { key: 'nav.contact', href: '/contact' },
+];
 
 export function Navbar() {
+  const { t } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const location = useLocation();
+
+  const whatsappUrl = getWhatsAppUrl(t('common.whatsappDefault'));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,15 +70,16 @@ export function Navbar() {
                     : 'text-text-muted hover:text-text',
                 )}
               >
-                {link.label}
+                {t(link.key)}
               </Link>
             ))}
           </div>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:block">
-            <Button variant="primary" size="sm" href={WHATSAPP_URL}>
-              Afspraak
+          {/* Desktop CTA + Language Switcher */}
+          <div className="hidden items-center gap-3 md:flex">
+            <LanguageSwitcher />
+            <Button variant="primary" size="sm" href={whatsappUrl}>
+              {t('common.appointment')}
             </Button>
           </div>
 
@@ -74,7 +87,7 @@ export function Navbar() {
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
             className="text-text md:hidden cursor-pointer"
-            aria-label="Toggle menu"
+            aria-label={t('common.toggleMenu')}
           >
             {isMobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -107,7 +120,7 @@ export function Navbar() {
                         : 'text-text hover:text-primary',
                     )}
                   >
-                    {link.label}
+                    {t(link.key)}
                   </Link>
                 </motion.div>
               ))}
@@ -116,10 +129,11 @@ export function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
               >
-                <Button variant="primary" size="lg" href={WHATSAPP_URL}>
-                  Maak een Afspraak →
+                <Button variant="primary" size="lg" href={whatsappUrl}>
+                  {t('common.makeAppointment')}
                 </Button>
               </motion.div>
+              <LanguageSwitcher className="mb-4" />
             </div>
           </motion.div>
         )}

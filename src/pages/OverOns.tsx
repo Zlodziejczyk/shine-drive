@@ -1,13 +1,17 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
-import { WHATSAPP_URL } from '@/lib/utils';
+import { getWhatsAppUrl } from '@/lib/utils';
 
 export default function OverOns() {
+  const { t } = useTranslation();
+  const whatsappUrl = getWhatsAppUrl(t('common.whatsappDefault'));
+
   usePageMeta({
-    title: 'Over Ons — Shine & Drive Zoetermeer',
-    description: 'Leer meer over Shine & Drive, uw vertrouwde autogarage en detailing studio in Zoetermeer.',
+    title: t('pages.overOns.metaTitle'),
+    description: t('pages.overOns.metaDescription'),
   });
 
   return (
@@ -20,7 +24,7 @@ export default function OverOns() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl font-extrabold text-text sm:text-5xl md:text-6xl"
           >
-            OVER <span className="text-primary">ONS</span>
+            {t('pages.overOns.heading')} <span className="text-primary">{t('pages.overOns.headingHighlight')}</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -28,7 +32,7 @@ export default function OverOns() {
             transition={{ delay: 0.2 }}
             className="mx-auto mt-6 max-w-xl text-lg text-text-muted"
           >
-            Binnenkort beschikbaar — neem contact met ons op voor meer informatie
+            {t('common.comingSoon')}
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -36,8 +40,8 @@ export default function OverOns() {
             transition={{ delay: 0.4 }}
             className="mt-8 flex justify-center gap-4"
           >
-            <Button variant="primary" href={WHATSAPP_URL}>Neem Contact Op →</Button>
-            <Button variant="outline" href="/">Terug naar Home</Button>
+            <Button variant="primary" href={whatsappUrl}>{t('common.contactUs')}</Button>
+            <Button variant="outline" href="/">{t('common.backHome')}</Button>
           </motion.div>
         </Container>
       </section>

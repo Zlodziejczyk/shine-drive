@@ -1,0 +1,360 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Diensten",
+    "packages": "Pakketten",
+    "portfolio": "Portfolio",
+    "about": "Over Ons",
+    "contact": "Contact"
+  },
+  "common": {
+    "appointment": "Afspraak",
+    "makeAppointment": "Maak een Afspraak →",
+    "viewServices": "Bekijk Diensten →",
+    "contactUs": "Neem Contact Op →",
+    "backHome": "Terug naar Home",
+    "whatsappChat": "Chat via WhatsApp →",
+    "whatsappDirect": "Direct via WhatsApp →",
+    "chatWithUs": "Chat met ons!",
+    "chatWhatsApp": "Chat via WhatsApp",
+    "whatsappDefault": "Hallo! Ik heb interesse in jullie diensten.",
+    "moreInfo": "Meer info",
+    "popular": "⭐ Populair",
+    "toggleMenu": "Menu openen",
+    "close": "Sluiten",
+    "previous": "Vorige",
+    "next": "Volgende",
+    "pause": "Pauzeren",
+    "soundOn": "Geluid aan",
+    "soundOff": "Geluid uit",
+    "expand": "Vergroten",
+    "reel": "▶ Reel",
+    "follow": "Volgen",
+    "followOnInstagram": "Volg op Instagram",
+    "comingSoon": "Binnenkort beschikbaar — neem contact met ons op voor meer informatie",
+    "websiteBy": "Website door",
+    "allRightsReserved": "© 2026 Shine & Drive — Alle rechten voorbehouden.",
+    "quickLinks": "Snelle Links",
+    "openingHours": "Openingstijden",
+    "address": "Adres",
+    "phone": "Telefoon",
+    "phoneWhatsApp": "Telefoon / WhatsApp",
+    "thuSat": "Do–Za: 09:00–18:00",
+    "otherDays": "Overige dagen op afspraak",
+    "bookPackage": "Boek dit pakket →",
+    "requestQuote": "Vraag offerte aan →",
+    "mapTitle": "Shine & Drive locatie"
+  },
+  "hero": {
+    "heading": "JOUW AUTO, ONZE PASSIE",
+    "subtitle": "Van reparatie tot showroom-glans — alles onder één dak in Zoetermeer"
+  },
+  "stats": {
+    "experience": "Jaar Ervaring",
+    "rating": "Klantbeoordeling ⭐",
+    "cars": "Auto's Behandeld",
+    "allInOne": "Garage + Detailing + Wrapping"
+  },
+  "services": {
+    "title": "Onze **Diensten**",
+    "subtitle": "Van volledige detailing tot car wrapping en mechanische reparaties — wij doen het allemaal.",
+    "notSure": "Niet zeker welke dienst u nodig heeft?",
+    "contactUs": "Neem contact op →",
+    "detailing": {
+      "title": "Auto Detailing",
+      "description": "Professionele reiniging van interieur en exterieur, lakcorrectie, coating en polijsten."
+    },
+    "wrapping": {
+      "title": "Car Wrapping",
+      "description": "Volledige en gedeeltelijke wraps, kleurverandering en beschermingsfolie."
+    },
+    "reparaties": {
+      "title": "Algemene Reparaties",
+      "description": "Onderhoud, remmen, olie, banden en APK-voorbereiding."
+    },
+    "elektromechanisch": {
+      "title": "Elektromechanische Reparaties",
+      "description": "Diagnose en reparatie van elektrische en mechanische systemen."
+    },
+    "tuning": {
+      "title": "Mechanisch Tuning",
+      "description": "Motor tuning, prestatieverbetering en chiptuning."
+    },
+    "mobiel": {
+      "title": "Mobiele Service",
+      "description": "Wij komen naar u toe — detailing en reparatie op locatie."
+    }
+  },
+  "whyChooseUs": {
+    "title": "Waarom Kiezen voor **Shine & Drive**?",
+    "subtitle": "Ontdek waarom wij de beste keuze zijn voor uw auto in Zoetermeer",
+    "allInOne": {
+      "title": "Alles-in-Één",
+      "description": "Reparatie, detailing én wrapping onder één dak"
+    },
+    "experience": {
+      "title": "12+ Jaar Ervaring",
+      "description": "Al meer dan een decennium vertrouwd in Zoetermeer"
+    },
+    "transparent": {
+      "title": "Transparante Service",
+      "description": "Foto's en factuur bij elke dienst — geen verrassingen"
+    },
+    "flexible": {
+      "title": "Flexibel & Snel",
+      "description": "Op afspraak ook buiten openingstijden beschikbaar"
+    }
+  },
+  "videoShowreel": {
+    "eyebrow": "Bekijk ons in actie",
+    "heading1": "Vakmanschap",
+    "heading2": "Tot in Detail",
+    "paragraph": "Elke auto verdient dezelfde aandacht. Van machinaal polijsten tot keramische coating — wij leveren showroom-kwaliteit.",
+    "cta": "Plan een Afspraak",
+    "playButton": "Bekijk met geluid"
+  },
+  "pricing": {
+    "title": "Onze **Pakketten**",
+    "subtitle": "Transparante prijzen, premium kwaliteit. Kies het pakket dat bij u past.",
+    "tabDetailing": "🚗 Detailing",
+    "tabWrapping": "🎨 Wrapping",
+    "tabReparatie": "🔧 Reparatie",
+    "viewAll": "Bekijk alle pakketten →",
+    "mechanicalTitle": "Mechanische",
+    "mechanicalHighlight": "Services",
+    "detailing": {
+      "basis": {
+        "title": "Basis Reiniging",
+        "whatsapp": "Hallo! Ik wil graag het Basis Reiniging pakket boeken.",
+        "features": [
+          "Handwas exterieur (carrosserie + velgen)",
+          "Stofzuigen interieur",
+          "Ramen binnen en buiten",
+          "Dashboard en panelen reinigen",
+          "Bandenglans"
+        ]
+      },
+      "premium": {
+        "title": "Premium Reiniging",
+        "whatsapp": "Hallo! Ik wil graag het Premium Reiniging pakket boeken.",
+        "features": [
+          "Alles uit Basis Reiniging",
+          "Dieptereiniging stoelen (stof of leer)",
+          "Kunststof behandeling + bescherming",
+          "Geurverfijning interieur",
+          "Wasbehandeling exterieur"
+        ]
+      },
+      "exclusive": {
+        "title": "Exclusive Deep Clean",
+        "whatsapp": "Hallo! Ik wil graag het Exclusive Deep Clean pakket boeken.",
+        "features": [
+          "Alles uit Premium Reiniging",
+          "Hemelbekleding reiniging",
+          "Motorruimte reiniging",
+          "Lakcorrectie + kleibehandeling",
+          "Keramische bescherming (basis)"
+        ]
+      }
+    },
+    "wrapping": {
+      "gedeeltelijk": {
+        "title": "Gedeeltelijke Wrap",
+        "whatsapp": "Hallo! Ik wil graag een offerte voor een gedeeltelijke wrap.",
+        "features": [
+          "Spiegelkappen, dak of motorkap",
+          "Hoogwaardige vinyl folie",
+          "Professionele montage",
+          "Inclusief voorbereiding en reiniging"
+        ]
+      },
+      "volledig": {
+        "title": "Volledige Wrap",
+        "whatsapp": "Hallo! Ik wil graag een offerte voor een volledige wrap.",
+        "features": [
+          "Volledige kleurverandering",
+          "Premium merk folies (3M / Avery)",
+          "Naadloze afwerking",
+          "3+ jaar garantie op folie",
+          "Ontwerp consultatie"
+        ]
+      },
+      "premium-ppf": {
+        "title": "Premium Wrap + PPF",
+        "whatsapp": "Hallo! Ik wil graag een offerte voor Premium Wrap + PPF.",
+        "features": [
+          "Alles uit Volledige Wrap",
+          "PPF beschermingsfolie op kwetsbare delen",
+          "Hoogglans of satin finish naar keuze",
+          "5+ jaar garantie",
+          "Persoonlijk ontwerp + kleuradvies"
+        ]
+      }
+    },
+    "mechanical": [
+      { "name": "Olie verversen", "price": "vanaf €59,-" },
+      { "name": "Remblokken vervangen", "price": "vanaf €89,-" },
+      { "name": "APK-voorbereiding + check", "price": "vanaf €39,-" },
+      { "name": "Bandenwissel (4x)", "price": "vanaf €49,-" },
+      { "name": "Diagnose & foutcodes uitlezen", "price": "vanaf €39,-" },
+      { "name": "Distributieriem", "price": "vanaf €349,-" }
+    ]
+  },
+  "gallery": {
+    "title": "Ons **Werk**",
+    "subtitle": "Van vuil naar showroom — bekijk de transformaties",
+    "cta": "Bekijk portfolio →"
+  },
+  "reviews": {
+    "title": "Wat Onze **Klanten** Zeggen",
+    "ratingText": "— op basis van klantbeoordelingen",
+    "1": "Reageert snel, vriendelijk en komt afspraken na. Top service!",
+    "2": "Snelle reactie, zeer vriendelijk. Komt altijd op tijd. Aanrader!",
+    "3": "Alles perfect geregeld. Snel, betrouwbaar en op tijd. Top!",
+    "4": "Heel attent en vriendelijk. Reageert supersnel en houdt zich aan afspraken.",
+    "5": "Vakkundige service, eerlijke prijzen. Mijn vaste adres voor alles rondom mijn auto."
+  },
+  "brandLogos": {
+    "header": "Premium merken — wij werken ermee"
+  },
+  "instagram": {
+    "title": "Volg Ons op **Instagram**",
+    "bio": "Auto Detailing • Car Wrapping • Reparaties — Zoetermeer 📍",
+    "captions": {
+      "1": "Interieur reiniging — van vuil naar showroom 🧼✨",
+      "2": "Polijsten tot perfectie 💎🚗",
+      "3": "Klassieke Mercedes — clean & detailed 🖤",
+      "4": "Mechanische reparatie — Audi RS6 🔧🏎️"
+    }
+  },
+  "contactCTA": {
+    "heading": "Klaar om uw Auto te Laten",
+    "headingHighlight": "Shinen",
+    "subtitle": "Neem vandaag nog contact op — wij helpen u graag!"
+  },
+  "hours": {
+    "monday": "Maandag",
+    "tuesday": "Dinsdag",
+    "wednesday": "Woensdag",
+    "thursday": "Donderdag",
+    "friday": "Vrijdag",
+    "saturday": "Zaterdag",
+    "sunday": "Zondag",
+    "byAppointment": "Op afspraak",
+    "closed": "Gesloten",
+    "regular": "09:00 – 18:00"
+  },
+  "footer": {
+    "about": "Jouw Auto, Onze Passie — Van Reparatie tot Showroom-Glans. De enige garage + detailing + car wrapping studio in Zoetermeer."
+  },
+  "videoCategories": {
+    "all": "Alles",
+    "interieur": "Interieur",
+    "detailing": "Detailing",
+    "exterieur": "Exterieur",
+    "wrapping": "Wrapping",
+    "resultaat": "Resultaat"
+  },
+  "videos": {
+    "6158070": "Interieur reiniging met borstel & product",
+    "6158064": "Interieur afwerking — handmatig poetsen",
+    "6158119": "Dashboard stofzuigen — dieptereiniging",
+    "6159207": "Polijsten — zwarte lak tot spiegelglans",
+    "6157968": "Machinaal polijsten — buffer & pad",
+    "6157983": "Tape aanbrengen — wrapping voorbereiding",
+    "6157787": "Close-up — lak reflectie detail",
+    "6157786": "Close-up — exterieur verfomlijning",
+    "6157781": "Lak close-up — diepglans resultaat",
+    "6159201": "Resultaat — glanzende zwarte lak",
+    "6159204": "Resultaat — schone auto klaar voor aflevering",
+    "6159374": "Resultaat — diepe reflectie op lak",
+    "6161372": "Resultaat — perfecte afwerking",
+    "6159208": "Resultaat — showroom-klare auto"
+  },
+  "pages": {
+    "home": {
+      "metaTitle": "Shine & Drive — Autogarage, Detailing & Car Wrapping in Zoetermeer",
+      "metaDescription": "De enige garage + detailing + wrapping studio in Zoetermeer. 12+ jaar ervaring, 5.0★ beoordeling. Reparatie, detailing en car wrapping onder één dak. Bel 06-31793774."
+    },
+    "diensten": {
+      "metaTitle": "Diensten — Shine & Drive Zoetermeer",
+      "metaDescription": "Ontdek onze diensten: auto detailing, car wrapping, reparaties en meer.",
+      "heading": "ONZE",
+      "headingHighlight": "DIENSTEN"
+    },
+    "pakketten": {
+      "metaTitle": "Pakketten — Shine & Drive Zoetermeer",
+      "metaDescription": "Bekijk onze detailing, car wrapping en reparatie pakketten. Transparante prijzen, premium kwaliteit.",
+      "heading": "ONZE",
+      "headingHighlight": "PAKKETTEN",
+      "subtitle": "Transparante prijzen, premium kwaliteit",
+      "readyToBook": "Klaar om te",
+      "readyToBookHighlight": "boeken",
+      "readyToBookText": "Neem contact op en wij plannen uw afspraak in."
+    },
+    "portfolio": {
+      "metaTitle": "Portfolio — Shine & Drive Zoetermeer",
+      "metaDescription": "Bekijk ons portfolio met detailing, wrapping en reparatie projecten.",
+      "heading": "ONS",
+      "headingHighlight": "PORTFOLIO"
+    },
+    "overOns": {
+      "metaTitle": "Over Ons — Shine & Drive Zoetermeer",
+      "metaDescription": "Leer meer over Shine & Drive, uw vertrouwde autogarage en detailing studio in Zoetermeer.",
+      "heading": "OVER",
+      "headingHighlight": "ONS"
+    },
+    "contact": {
+      "metaTitle": "Contact — Shine & Drive Zoetermeer",
+      "metaDescription": "Neem contact op met Shine & Drive. Bel, WhatsApp of bezoek ons op Industrieweg 6E, Zoetermeer.",
+      "heading": "CONTACT",
+      "subtitle": "Wij helpen u graag — neem vandaag nog contact op",
+      "formTitle": "Stuur ons een bericht",
+      "name": "Naam",
+      "namePlaceholder": "Uw naam",
+      "email": "E-mail",
+      "emailPlaceholder": "uw@email.nl",
+      "phoneLbl": "Telefoon",
+      "phonePlaceholder": "06-12345678",
+      "service": "Dienst",
+      "selectService": "Selecteer een dienst",
+      "optDetailing": "Auto Detailing",
+      "optWrapping": "Car Wrapping",
+      "optReparatie": "Algemene Reparaties",
+      "optElektro": "Elektromechanische Reparaties",
+      "optTuning": "Mechanisch Tuning",
+      "optMobiel": "Mobiele Service",
+      "message": "Bericht",
+      "messagePlaceholder": "Vertel ons meer over uw wensen...",
+      "send": "Verstuur Bericht",
+      "faqTitle": "Veelgestelde",
+      "faqHighlight": "Vragen",
+      "faqs": [
+        {
+          "q": "Hoe kan ik een afspraak maken?",
+          "a": "U kunt eenvoudig een afspraak maken via WhatsApp, telefonisch of via ons contactformulier. Wij reageren meestal binnen een uur."
+        },
+        {
+          "q": "Bieden jullie ook ophaal- en brengservice?",
+          "a": "Ja, wij bieden een mobiele service aan. Neem contact met ons op voor de mogelijkheden in uw regio."
+        },
+        {
+          "q": "Hoe lang duurt een detailing behandeling?",
+          "a": "Een basis reiniging duurt gemiddeld 2-3 uur. Premium en exclusive behandelingen kunnen 4-8 uur duren, afhankelijk van de staat van uw auto."
+        },
+        {
+          "q": "Geven jullie garantie op car wrapping?",
+          "a": "Ja, wij geven 3+ jaar garantie op een volledige wrap en 5+ jaar op onze Premium Wrap + PPF pakketten."
+        }
+      ]
+    },
+    "notFound": {
+      "metaTitle": "404 — Pagina Niet Gevonden | Shine & Drive",
+      "metaDescription": "Deze pagina bestaat niet. Ga terug naar de homepage van Shine & Drive.",
+      "heading": "404",
+      "subheading": "Pagina Niet Gevonden",
+      "text": "De pagina die u zoekt bestaat niet of is verplaatst.",
+      "cta": "Terug naar Home →"
+    }
+  }
+}

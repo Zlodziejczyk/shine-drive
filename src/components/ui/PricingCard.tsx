@@ -1,4 +1,5 @@
-import { cn } from '@/lib/utils';
+import { cn, getWhatsAppUrl } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { Badge } from './Badge';
@@ -8,9 +9,18 @@ import type { PricingPackage } from '@/data/pricing';
 interface PricingCardProps {
   pkg: PricingPackage;
   index: number;
+  category: string;
 }
 
-export function PricingCard({ pkg, index }: PricingCardProps) {
+export function PricingCard({ pkg, index, category }: PricingCardProps) {
+  const { t } = useTranslation();
+
+  const features = t(`pricing.${category}.${pkg.id}.features`, { returnObjects: true }) as string[];
+  const waMessage = t(`pricing.${category}.${pkg.id}.whatsapp`);
+  const ctaLink = getWhatsAppUrl(waMessage);
+  const ctaText = category === 'detailing'
+    ? t('common.bookPackage')
+    : t('common.requestQuote');
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -27,12 +37,12 @@ export function PricingCard({ pkg, index }: PricingCardProps) {
     >
       {pkg.isPopular && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <Badge variant="popular">⭐ Populair</Badge>
+          <Badge variant="popular">{t('common.popular')}</Badge>
         </div>
       )}
 
       <div className="mb-6">
-        <h3 className="text-xl font-bold text-text">{pkg.title}</h3>
+        <h3 className="text-xl font-bold text-text">{t(`pricing.${category}.${pkg.id}.title`)}</h3>
         <div className="mt-3">
           <span className={cn(
             'text-4xl font-extrabold',
@@ -44,20 +54,20 @@ export function PricingCard({ pkg, index }: PricingCardProps) {
       </div>
 
       <ul className="mb-8 flex-1 space-y-3">
-        {pkg.features.map((feature, i) => (
+        {features.map((text, i) => (
           <li key={i} className="flex items-start gap-3">
             <Check className="mt-0.5 h-5 w-5 shrink-0 text-success" />
-            <span className="text-sm text-text-muted">{feature.text}</span>
+            <span className="text-sm text-text-muted">{text}</span>
           </li>
         ))}
       </ul>
 
       <Button
         variant={pkg.isPopular ? 'primary' : 'outline'}
-        href={pkg.ctaLink}
+        href={ctaLink}
         className="w-full"
       >
-        {pkg.ctaText}
+        {ctaText}
       </Button>
     </motion.div>
   );

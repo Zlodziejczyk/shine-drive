@@ -1,24 +1,27 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { Container } from '@/components/ui/Container';
 import { PricingCard } from '@/components/ui/PricingCard';
 import { Button } from '@/components/ui/Button';
-import { detailingPackages, wrappingPackages, mechanicalServices } from '@/data/pricing';
-import { WHATSAPP_URL } from '@/lib/utils';
-
-const tabs = [
-  { id: 'detailing', label: '🚗 Detailing' },
-  { id: 'wrapping', label: '🎨 Wrapping' },
-  { id: 'reparatie', label: '🔧 Reparatie' },
-];
+import { detailingPackages, wrappingPackages } from '@/data/pricing';
+import { getWhatsAppUrl } from '@/lib/utils';
 
 export default function Pakketten() {
+  const { t } = useTranslation();
+  const whatsappUrl = getWhatsAppUrl(t('common.whatsappDefault'));
+
   usePageMeta({
-    title: 'Pakketten — Shine & Drive Zoetermeer',
-    description:
-      'Bekijk onze detailing, car wrapping en reparatie pakketten. Transparante prijzen, premium kwaliteit.',
+    title: t('pages.pakketten.metaTitle'),
+    description: t('pages.pakketten.metaDescription'),
   });
+
+  const tabs = [
+    { id: 'detailing', labelKey: 'pricing.tabDetailing' },
+    { id: 'wrapping', labelKey: 'pricing.tabWrapping' },
+    { id: 'reparatie', labelKey: 'pricing.tabReparatie' },
+  ];
 
   const [activeTab, setActiveTab] = useState('detailing');
 
@@ -34,7 +37,7 @@ export default function Pakketten() {
             transition={{ duration: 0.6 }}
             className="text-4xl font-extrabold text-text sm:text-5xl md:text-6xl"
           >
-            ONZE <span className="text-primary">PAKKETTEN</span>
+            {t('pages.pakketten.heading')} <span className="text-primary">{t('pages.pakketten.headingHighlight')}</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -42,7 +45,7 @@ export default function Pakketten() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-4 text-lg text-text-muted"
           >
-            Transparante prijzen, premium kwaliteit
+            {t('pages.pakketten.subtitle')}
           </motion.p>
         </Container>
       </section>
@@ -68,7 +71,7 @@ export default function Pakketten() {
                       transition={{ type: 'spring', duration: 0.5 }}
                     />
                   )}
-                  <span className="relative z-10">{tab.label}</span>
+                  <span className="relative z-10">{t(tab.labelKey)}</span>
                 </button>
               ))}
             </div>
@@ -85,7 +88,7 @@ export default function Pakketten() {
                 className="grid gap-6 md:grid-cols-3"
               >
                 {detailingPackages.map((pkg, i) => (
-                  <PricingCard key={pkg.id} pkg={pkg} index={i} />
+                  <PricingCard key={pkg.id} pkg={pkg} index={i} category={activeTab} />
                 ))}
               </motion.div>
             )}
@@ -100,7 +103,7 @@ export default function Pakketten() {
                 className="grid gap-6 md:grid-cols-3"
               >
                 {wrappingPackages.map((pkg, i) => (
-                  <PricingCard key={pkg.id} pkg={pkg} index={i} />
+                  <PricingCard key={pkg.id} pkg={pkg} index={i} category={activeTab} />
                 ))}
               </motion.div>
             )}
@@ -115,11 +118,11 @@ export default function Pakketten() {
                 className="mx-auto max-w-2xl"
               >
                 <div className="overflow-hidden rounded-2xl border border-border bg-surface-card">
-                  {mechanicalServices.map((service, i) => (
+                  {(t('pricing.mechanical', { returnObjects: true }) as { name: string; price: string }[]).map((service, i, arr) => (
                     <div
                       key={service.name}
                       className={`flex items-center justify-between px-6 py-4 ${
-                        i !== mechanicalServices.length - 1 ? 'border-b border-border' : ''
+                        i !== arr.length - 1 ? 'border-b border-border' : ''
                       }`}
                     >
                       <span className="text-text">{service.name}</span>
@@ -137,14 +140,14 @@ export default function Pakketten() {
       <section className="bg-surface-light py-16">
         <Container className="text-center">
           <h2 className="text-2xl font-bold text-text sm:text-3xl">
-            Klaar om te <span className="text-primary">boeken</span>?
+            {t('pages.pakketten.readyToBook')} <span className="text-primary">{t('pages.pakketten.readyToBookHighlight')}</span>?
           </h2>
           <p className="mt-3 text-text-muted">
-            Neem contact op en wij plannen uw afspraak in.
+            {t('pages.pakketten.readyToBookText')}
           </p>
           <div className="mt-8">
-            <Button variant="primary" size="lg" href={WHATSAPP_URL}>
-              Maak een Afspraak →
+            <Button variant="primary" size="lg" href={whatsappUrl}>
+              {t('common.makeAppointment')}
             </Button>
           </div>
         </Container>

@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
 import { useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/Button';
-import { WHATSAPP_URL } from '@/lib/utils';
+import { getWhatsAppUrl } from '@/lib/utils';
 import { showreelVideo } from '@/data/pexels-videos';
 
 /**
@@ -13,6 +14,8 @@ import { showreelVideo } from '@/data/pexels-videos';
 export function VideoShowreel() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [hasInteracted, setHasInteracted] = useState(false);
+  const { t } = useTranslation();
+  const whatsappUrl = getWhatsAppUrl(t('common.whatsappDefault'));
 
   const handlePlay = () => {
     const el = videoRef.current;
@@ -62,7 +65,7 @@ export function VideoShowreel() {
               transition={{ duration: 0.6 }}
               className="mb-3 text-sm font-semibold tracking-widest text-accent uppercase"
             >
-              Bekijk ons in actie
+              {t('videoShowreel.eyebrow')}
             </motion.p>
 
             <motion.h2
@@ -72,10 +75,10 @@ export function VideoShowreel() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-3xl font-extrabold text-white sm:text-4xl lg:text-5xl"
             >
-              Vakmanschap
+              {t('videoShowreel.heading1')}
               <br />
               <span className="bg-linear-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">
-                Tot in Detail
+                {t('videoShowreel.heading2')}
               </span>
             </motion.h2>
 
@@ -86,8 +89,7 @@ export function VideoShowreel() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-4 max-w-lg text-base text-white/70 sm:text-lg"
             >
-              Elke auto verdient dezelfde aandacht. Van machinaal polijsten tot
-              keramische coating — wij leveren showroom-kwaliteit.
+              {t('videoShowreel.paragraph')}
             </motion.p>
 
             {/* CTA row */}
@@ -98,8 +100,8 @@ export function VideoShowreel() {
               transition={{ duration: 0.6, delay: 0.35 }}
               className="mt-8 flex flex-wrap items-center gap-4"
             >
-              <Button variant="primary" size="lg" href={WHATSAPP_URL}>
-                Plan een Afspraak
+              <Button variant="primary" size="lg" href={whatsappUrl}>
+                {t('videoShowreel.cta')}
               </Button>
 
               {!hasInteracted && (
@@ -112,7 +114,7 @@ export function VideoShowreel() {
                     <span className="absolute inset-0 animate-ping rounded-full border border-white/20" />
                     <Play className="ml-0.5 h-5 w-5 fill-white" />
                   </span>
-                  <span className="text-sm font-medium">Bekijk met geluid</span>
+                  <span className="text-sm font-medium">{t('videoShowreel.playButton')}</span>
                 </button>
               )}
             </motion.div>

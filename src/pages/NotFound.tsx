@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 
 export default function NotFound() {
+  const { t } = useTranslation();
+
   usePageMeta({
-    title: '404 — Pagina Niet Gevonden | Shine & Drive',
-    description: 'Deze pagina bestaat niet. Ga terug naar de homepage van Shine & Drive.',
+    title: t('pages.notFound.metaTitle'),
+    description: t('pages.notFound.metaDescription'),
   });
 
   return (
@@ -18,14 +21,14 @@ export default function NotFound() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
         >
-          <h1 className="text-8xl font-extrabold text-primary sm:text-9xl">404</h1>
-          <p className="mt-4 text-2xl font-bold text-text">Pagina Niet Gevonden</p>
+          <h1 className="text-8xl font-extrabold text-primary sm:text-9xl">{t('pages.notFound.heading')}</h1>
+          <p className="mt-4 text-2xl font-bold text-text">{t('pages.notFound.subheading')}</p>
           <p className="mt-2 text-text-muted">
-            De pagina die u zoekt bestaat niet of is verplaatst.
+            {t('pages.notFound.text')}
           </p>
           <div className="mt-8">
             <Button variant="primary" size="lg" href="/">
-              Terug naar Home →
+              {t('pages.notFound.cta')}
             </Button>
           </div>
         </motion.div>

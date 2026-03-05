@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { Hero } from '@/components/sections/Hero';
 import { Stats } from '@/components/sections/Stats';
@@ -12,10 +13,11 @@ import { InstagramFeed } from '@/components/sections/InstagramFeed';
 import { ContactCTA } from '@/components/sections/ContactCTA';
 
 export default function Home() {
+  const { t } = useTranslation();
+
   usePageMeta({
-    title: 'Shine & Drive — Autogarage, Detailing & Car Wrapping in Zoetermeer',
-    description:
-      'De enige garage + detailing + wrapping studio in Zoetermeer. 12+ jaar ervaring, 5.0★ beoordeling. Reparatie, detailing en car wrapping onder één dak. Bel 06-31793774.',
+    title: t('pages.home.metaTitle'),
+    description: t('pages.home.metaDescription'),
   });
 
   return (

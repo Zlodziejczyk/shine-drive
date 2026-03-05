@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Instagram, Heart, MessageCircle, ExternalLink } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
@@ -57,6 +58,7 @@ function InstagramPostEmbed({ shortcode }: { shortcode: string }) {
 }
 
 function InstagramPostPlaceholder({ post, index }: { post: InstaPost; index: number }) {
+  const { t } = useTranslation();
   return (
     <motion.a
       href={INSTAGRAM_URL}
@@ -75,7 +77,7 @@ function InstagramPostPlaceholder({ post, index }: { post: InstaPost; index: num
       {/* Post type indicator */}
       {post.type === 'reel' && (
         <div className="absolute top-2 right-2 z-10 rounded-md bg-black/50 px-1.5 py-0.5 text-[10px] font-medium text-white backdrop-blur-sm">
-          ▶ Reel
+          {t('common.reel')}
         </div>
       )}
       {post.type === 'carousel' && (
@@ -92,7 +94,7 @@ function InstagramPostPlaceholder({ post, index }: { post: InstaPost; index: num
           <Instagram className="h-6 w-6 text-white" />
         </div>
         <p className="line-clamp-2 text-center text-xs text-text-dim transition-colors group-hover:text-text-muted">
-          {post.caption}
+          {t(`instagram.captions.${post.id}`)}
         </p>
       </div>
 
@@ -112,6 +114,8 @@ function InstagramPostPlaceholder({ post, index }: { post: InstaPost; index: num
 }
 
 export function InstagramFeed() {
+  const { t } = useTranslation();
+
   // Load Instagram embed script when using real embeds
   useEffect(() => {
     if (!USE_EMBEDS) return;
@@ -128,7 +132,7 @@ export function InstagramFeed() {
     <section className="relative bg-surface-light py-20 md:py-28">
       <Container>
         <SectionHeading
-          title="Volg Ons op **Instagram**"
+          title={t('instagram.title')}
         />
 
         {/* Instagram profile header — like Daily Auto Care / Smash Balloon style */}
@@ -162,7 +166,7 @@ export function InstagramFeed() {
               <ExternalLink className="h-4 w-4 text-text-dim" />
             </a>
             <p className="text-sm text-text-muted">
-              Auto Detailing • Car Wrapping • Reparaties — Zoetermeer 📍
+              {t('instagram.bio')}
             </p>
           </div>
 
@@ -173,7 +177,7 @@ export function InstagramFeed() {
             rel="noopener noreferrer"
             className="rounded-lg bg-linear-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
           >
-            Volgen
+            {t('common.follow')}
           </a>
         </motion.div>
 
@@ -204,7 +208,7 @@ export function InstagramFeed() {
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
           <Button variant="outline" href={INSTAGRAM_URL}>
             <Instagram className="h-5 w-5" />
-            Volg op Instagram
+            {t('common.followOnInstagram')}
           </Button>
           <span className="text-sm text-text-dim">@shine_drive_studio</span>
         </div>

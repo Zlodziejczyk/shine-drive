@@ -1,18 +1,22 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Instagram, MessageCircle, Phone, MapPin, Clock } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
-import { WHATSAPP_URL, INSTAGRAM_URL, ADDRESS, WHATSAPP_NUMBER } from '@/lib/utils';
+import { getWhatsAppUrl, INSTAGRAM_URL, ADDRESS, WHATSAPP_NUMBER } from '@/lib/utils';
 
 const quickLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Diensten', href: '/diensten' },
-  { label: 'Pakketten', href: '/pakketten' },
-  { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Over Ons', href: '/over-ons' },
-  { label: 'Contact', href: '/contact' },
+  { key: 'nav.home', href: '/' },
+  { key: 'nav.services', href: '/diensten' },
+  { key: 'nav.packages', href: '/pakketten' },
+  { key: 'nav.portfolio', href: '/portfolio' },
+  { key: 'nav.about', href: '/over-ons' },
+  { key: 'nav.contact', href: '/contact' },
 ];
 
 export function Footer() {
+  const { t } = useTranslation();
+  const whatsappUrl = getWhatsAppUrl(t('common.whatsappDefault'));
+
   return (
     <footer className="border-t border-border bg-surface">
       <Container className="py-12 md:py-16">
@@ -25,7 +29,7 @@ export function Footer() {
               <span className="text-primary">DRIVE</span>
             </div>
             <p className="mb-6 text-sm leading-relaxed text-text-muted">
-              Jouw Auto, Onze Passie — Van Reparatie tot Showroom-Glans. De enige garage + detailing + car wrapping studio in Zoetermeer.
+              {t('footer.about')}
             </p>
             <div className="flex gap-3">
               <a
@@ -37,7 +41,7 @@ export function Footer() {
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href={WHATSAPP_URL}
+                href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-surface-card text-text-muted transition-all hover:border-whatsapp hover:text-whatsapp"
@@ -50,7 +54,7 @@ export function Footer() {
           {/* Column 2 - Quick Links */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text">
-              Snelle Links
+              {t('common.quickLinks')}
             </h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
@@ -59,7 +63,7 @@ export function Footer() {
                     to={link.href}
                     className="text-sm text-text-muted transition-colors hover:text-primary"
                   >
-                    {link.label}
+                    {t(link.key)}
                   </Link>
                 </li>
               ))}
@@ -69,7 +73,7 @@ export function Footer() {
           {/* Column 3 - Contact */}
           <div>
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-text">
-              Contact
+              {t('nav.contact')}
             </h4>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
@@ -85,8 +89,8 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 <div className="text-sm text-text-muted">
-                  <p>Do–Za: 09:00–18:00</p>
-                  <p>Overige dagen op afspraak</p>
+                  <p>{t('common.thuSat')}</p>
+                  <p>{t('common.otherDays')}</p>
                 </div>
               </li>
             </ul>
@@ -97,9 +101,9 @@ export function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-border">
         <Container className="flex flex-col items-center justify-between gap-2 py-6 text-xs text-text-dim sm:flex-row">
-          <p>© 2026 Shine & Drive — Alle rechten voorbehouden.</p>
+          <p>{t('common.allRightsReserved')}</p>
           <p>
-            Website door{' '}
+            {t('common.websiteBy')}{' '}
             <a
               href="https://polaris360.nl"
               target="_blank"

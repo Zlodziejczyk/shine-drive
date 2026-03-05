@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -8,6 +9,7 @@ import { pexelsVideos, videoCategories } from '@/data/pexels-videos';
 import { cn } from '@/lib/utils';
 
 export function Gallery() {
+  const { t } = useTranslation();
   const [activeFilter, setActiveFilter] = useState<string>('all');
 
   const filtered =
@@ -19,8 +21,8 @@ export function Gallery() {
     <section className="relative bg-surface-light py-20 md:py-28">
       <Container>
         <SectionHeading
-          title="Ons **Werk**"
-          subtitle="Van vuil naar showroom — bekijk de transformaties"
+          title={t('gallery.title')}
+          subtitle={t('gallery.subtitle')}
         />
 
         {/* Category filter tabs */}
@@ -37,7 +39,7 @@ export function Gallery() {
                   : 'border border-border bg-surface-card text-text-muted hover:border-primary/40 hover:text-text'
               )}
             >
-              {cat.label}
+              {t(`videoCategories.${cat.key}`)}
             </motion.button>
           ))}
         </div>
@@ -51,7 +53,7 @@ export function Gallery() {
       <Container>
         <div className="mt-10 text-center">
           <Button variant="outline" href="/portfolio">
-            Bekijk portfolio →
+            {t('gallery.cta')}
           </Button>
         </div>
       </Container>

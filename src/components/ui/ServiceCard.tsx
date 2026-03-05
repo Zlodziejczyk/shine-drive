@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import type { Service } from '@/data/services';
@@ -9,6 +10,7 @@ interface ServiceCardProps {
 }
 
 export function ServiceCard({ service, index }: ServiceCardProps) {
+  const { t } = useTranslation();
   const Icon = service.icon;
 
   return (
@@ -23,13 +25,13 @@ export function ServiceCard({ service, index }: ServiceCardProps) {
       <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-white">
         <Icon className="h-6 w-6" />
       </div>
-      <h3 className="mb-2 text-xl font-bold text-text">{service.title}</h3>
-      <p className="mb-4 text-sm leading-relaxed text-text-muted">{service.description}</p>
+      <h3 className="mb-2 text-xl font-bold text-text">{t(`services.${service.id}.title`)}</h3>
+      <p className="mb-4 text-sm leading-relaxed text-text-muted">{t(`services.${service.id}.description`)}</p>
       <Link
         to="/diensten"
         className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary-light"
       >
-        Meer info <ArrowRight className="h-4 w-4" />
+        {t('common.moreInfo')} <ArrowRight className="h-4 w-4" />
       </Link>
     </motion.div>
   );

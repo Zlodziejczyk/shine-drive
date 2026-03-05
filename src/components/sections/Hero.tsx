@@ -1,13 +1,17 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
 import { ParticleBackground } from '@/components/effects/ParticleBackground';
 import { GradientOrb } from '@/components/effects/GradientOrb';
-import { WHATSAPP_URL } from '@/lib/utils';
+import { getWhatsAppUrl } from '@/lib/utils';
 import { heroVideo } from '@/data/pexels-videos';
 
 export function Hero() {
+  const { t } = useTranslation();
+  const whatsappUrl = getWhatsAppUrl(t('common.whatsappDefault'));
+
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-surface">
       {/* Background video */}
@@ -51,7 +55,7 @@ export function Hero() {
           className="mx-auto max-w-4xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
         >
           <span className="bg-gradient-to-r from-primary via-primary-light to-accent bg-clip-text text-transparent">
-            JOUW AUTO, ONZE PASSIE
+            {t('hero.heading')}
           </span>
         </motion.h1>
 
@@ -62,7 +66,7 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="mx-auto mt-6 max-w-2xl text-lg text-text-muted sm:text-xl"
         >
-          Van reparatie tot showroom-glans — alles onder één dak in Zoetermeer
+          {t('hero.subtitle')}
         </motion.p>
 
         {/* CTA buttons */}
@@ -72,11 +76,11 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <Button variant="primary" size="lg" href={WHATSAPP_URL}>
-            Maak een Afspraak →
+          <Button variant="primary" size="lg" href={whatsappUrl}>
+            {t('common.makeAppointment')}
           </Button>
           <Button variant="outline" size="lg" href="/diensten">
-            Bekijk Diensten →
+            {t('common.viewServices')}
           </Button>
         </motion.div>
       </Container>

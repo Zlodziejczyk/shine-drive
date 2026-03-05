@@ -1,39 +1,11 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Send, MapPin, Phone, Clock, MessageCircle, ChevronDown } from 'lucide-react';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
-import { WHATSAPP_URL, WHATSAPP_NUMBER, ADDRESS } from '@/lib/utils';
-
-const hours = [
-  { day: 'Maandag', time: 'Op afspraak' },
-  { day: 'Dinsdag', time: 'Op afspraak' },
-  { day: 'Woensdag', time: 'Op afspraak' },
-  { day: 'Donderdag', time: '09:00 – 18:00' },
-  { day: 'Vrijdag', time: '09:00 – 18:00' },
-  { day: 'Zaterdag', time: '09:00 – 18:00' },
-  { day: 'Zondag', time: 'Gesloten' },
-];
-
-const faqs = [
-  {
-    q: 'Hoe kan ik een afspraak maken?',
-    a: 'U kunt eenvoudig een afspraak maken via WhatsApp, telefonisch of via ons contactformulier. Wij reageren meestal binnen een uur.',
-  },
-  {
-    q: 'Bieden jullie ook ophaal- en brengservice?',
-    a: 'Ja, wij bieden een mobiele service aan. Neem contact met ons op voor de mogelijkheden in uw regio.',
-  },
-  {
-    q: 'Hoe lang duurt een detailing behandeling?',
-    a: 'Een basis reiniging duurt gemiddeld 2-3 uur. Premium en exclusive behandelingen kunnen 4-8 uur duren, afhankelijk van de staat van uw auto.',
-  },
-  {
-    q: 'Geven jullie garantie op car wrapping?',
-    a: 'Ja, wij geven 3+ jaar garantie op een volledige wrap en 5+ jaar op onze Premium Wrap + PPF pakketten.',
-  },
-];
+import { getWhatsAppUrl, WHATSAPP_NUMBER, ADDRESS } from '@/lib/utils';
 
 function FAQItem({ faq, index }: { faq: { q: string; a: string }; index: number }) {
   const [open, setOpen] = useState(false);
@@ -68,10 +40,24 @@ function FAQItem({ faq, index }: { faq: { q: string; a: string }; index: number 
 }
 
 export default function Contact() {
+  const { t } = useTranslation();
+  const whatsappUrl = getWhatsAppUrl(t('common.whatsappDefault'));
+
+  const hours = [
+    { day: t('hours.monday'), time: t('hours.byAppointment') },
+    { day: t('hours.tuesday'), time: t('hours.byAppointment') },
+    { day: t('hours.wednesday'), time: t('hours.byAppointment') },
+    { day: t('hours.thursday'), time: t('hours.regular') },
+    { day: t('hours.friday'), time: t('hours.regular') },
+    { day: t('hours.saturday'), time: t('hours.regular') },
+    { day: t('hours.sunday'), time: t('hours.closed') },
+  ];
+
+  const faqs = t('pages.contact.faqs', { returnObjects: true }) as { q: string; a: string }[];
+
   usePageMeta({
-    title: 'Contact — Shine & Drive Zoetermeer',
-    description:
-      'Neem contact op met Shine & Drive. Bel, WhatsApp of bezoek ons op Industrieweg 6E, Zoetermeer.',
+    title: t('pages.contact.metaTitle'),
+    description: t('pages.contact.metaDescription'),
   });
 
   return (
@@ -85,7 +71,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl font-extrabold text-text sm:text-5xl md:text-6xl"
           >
-            <span className="text-primary">CONTACT</span>
+            <span className="text-primary">{t('pages.contact.heading')}</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -93,7 +79,7 @@ export default function Contact() {
             transition={{ delay: 0.2 }}
             className="mt-4 text-lg text-text-muted"
           >
-            Wij helpen u graag — neem vandaag nog contact op
+            {t('pages.contact.subtitle')}
           </motion.p>
         </Container>
       </section>
@@ -109,65 +95,65 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="mb-6 text-2xl font-bold text-text">Stuur ons een bericht</h2>
+              <h2 className="mb-6 text-2xl font-bold text-text">{t('pages.contact.formTitle')}</h2>
               <form
                 onSubmit={(e) => e.preventDefault()}
                 className="space-y-4"
               >
                 <div>
-                  <label htmlFor="name" className="mb-1 block text-sm text-text-muted">Naam</label>
+                  <label htmlFor="name" className="mb-1 block text-sm text-text-muted">{t('pages.contact.name')}</label>
                   <input
                     id="name"
                     type="text"
-                    placeholder="Uw naam"
+                    placeholder={t('pages.contact.namePlaceholder')}
                     className="w-full rounded-xl border border-border bg-surface-card px-4 py-3 text-text placeholder:text-text-dim focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="mb-1 block text-sm text-text-muted">E-mail</label>
+                  <label htmlFor="email" className="mb-1 block text-sm text-text-muted">{t('pages.contact.email')}</label>
                   <input
                     id="email"
                     type="email"
-                    placeholder="uw@email.nl"
+                    placeholder={t('pages.contact.emailPlaceholder')}
                     className="w-full rounded-xl border border-border bg-surface-card px-4 py-3 text-text placeholder:text-text-dim focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="mb-1 block text-sm text-text-muted">Telefoon</label>
+                  <label htmlFor="phone" className="mb-1 block text-sm text-text-muted">{t('pages.contact.phoneLbl')}</label>
                   <input
                     id="phone"
                     type="tel"
-                    placeholder="06-12345678"
+                    placeholder={t('pages.contact.phonePlaceholder')}
                     className="w-full rounded-xl border border-border bg-surface-card px-4 py-3 text-text placeholder:text-text-dim focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                   />
                 </div>
                 <div>
-                  <label htmlFor="service" className="mb-1 block text-sm text-text-muted">Dienst</label>
+                  <label htmlFor="service" className="mb-1 block text-sm text-text-muted">{t('pages.contact.service')}</label>
                   <select
                     id="service"
                     className="w-full rounded-xl border border-border bg-surface-card px-4 py-3 text-text focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                   >
-                    <option value="">Selecteer een dienst</option>
-                    <option value="detailing">Auto Detailing</option>
-                    <option value="wrapping">Car Wrapping</option>
-                    <option value="reparatie">Algemene Reparaties</option>
-                    <option value="elektro">Elektromechanische Reparaties</option>
-                    <option value="tuning">Mechanisch Tuning</option>
-                    <option value="mobiel">Mobiele Service</option>
+                    <option value="">{t('pages.contact.selectService')}</option>
+                    <option value="detailing">{t('pages.contact.optDetailing')}</option>
+                    <option value="wrapping">{t('pages.contact.optWrapping')}</option>
+                    <option value="reparatie">{t('pages.contact.optReparatie')}</option>
+                    <option value="elektro">{t('pages.contact.optElektro')}</option>
+                    <option value="tuning">{t('pages.contact.optTuning')}</option>
+                    <option value="mobiel">{t('pages.contact.optMobiel')}</option>
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="message" className="mb-1 block text-sm text-text-muted">Bericht</label>
+                  <label htmlFor="message" className="mb-1 block text-sm text-text-muted">{t('pages.contact.message')}</label>
                   <textarea
                     id="message"
                     rows={4}
-                    placeholder="Vertel ons meer over uw wensen..."
+                    placeholder={t('pages.contact.messagePlaceholder')}
                     className="w-full rounded-xl border border-border bg-surface-card px-4 py-3 text-text placeholder:text-text-dim focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary resize-none"
                   />
                 </div>
                 <Button variant="primary" size="lg" className="w-full">
                   <Send className="h-5 w-5" />
-                  Verstuur Bericht
+                  {t('pages.contact.send')}
                 </Button>
               </form>
             </motion.div>
@@ -185,30 +171,30 @@ export default function Contact() {
                 <div className="flex items-start gap-4 rounded-xl border border-border bg-surface-card p-4">
                   <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                   <div>
-                    <p className="font-medium text-text">Adres</p>
+                    <p className="font-medium text-text">{t('common.address')}</p>
                     <p className="text-sm text-text-muted">{ADDRESS}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 rounded-xl border border-border bg-surface-card p-4">
                   <Phone className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                   <div>
-                    <p className="font-medium text-text">Telefoon / WhatsApp</p>
+                    <p className="font-medium text-text">{t('common.phoneWhatsApp')}</p>
                     <p className="text-sm text-text-muted">{WHATSAPP_NUMBER}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4 rounded-xl border border-border bg-surface-card p-4">
                   <Clock className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
                   <div>
-                    <p className="font-medium text-text">Openingstijden</p>
-                    <p className="text-sm text-text-muted">Do–Za: 09:00–18:00 / Overige dagen op afspraak</p>
+                    <p className="font-medium text-text">{t('common.openingHours')}</p>
+                    <p className="text-sm text-text-muted">{t('common.thuSat')} / {t('common.otherDays')}</p>
                   </div>
                 </div>
               </div>
 
               {/* WhatsApp CTA */}
-              <Button variant="whatsapp" size="lg" href={WHATSAPP_URL} className="w-full">
+              <Button variant="whatsapp" size="lg" href={whatsappUrl} className="w-full">
                 <MessageCircle className="h-5 w-5" />
-                Direct via WhatsApp →
+                {t('common.whatsappDirect')}
               </Button>
 
               {/* Map */}
@@ -218,13 +204,13 @@ export default function Contact() {
                   className="h-64 w-full border-0 grayscale invert-[0.9]"
                   allowFullScreen
                   loading="lazy"
-                  title="Shine & Drive locatie"
+                  title={t('common.mapTitle')}
                 />
               </div>
 
               {/* Hours table */}
               <div className="rounded-2xl border border-border bg-surface-card p-4">
-                <h4 className="mb-3 font-semibold text-text">Openingstijden</h4>
+                <h4 className="mb-3 font-semibold text-text">{t('common.openingHours')}</h4>
                 {hours.map((h) => (
                   <div
                     key={h.day}
@@ -244,7 +230,7 @@ export default function Contact() {
       <section className="bg-surface-light py-16 md:py-20">
         <Container className="mx-auto max-w-3xl">
           <h2 className="mb-8 text-center text-2xl font-bold text-text sm:text-3xl">
-            Veelgestelde <span className="text-primary">Vragen</span>
+            {t('pages.contact.faqTitle')} <span className="text-primary">{t('pages.contact.faqHighlight')}</span>
           </h2>
           <div className="rounded-2xl border border-border bg-surface-card p-6">
             {faqs.map((faq, i) => (

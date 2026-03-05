@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
@@ -7,16 +8,16 @@ import { Button } from '@/components/ui/Button';
 import {
   detailingPackages,
   wrappingPackages,
-  mechanicalServices,
 } from '@/data/pricing';
 
-const tabs = [
-  { id: 'detailing', label: '🚗 Detailing' },
-  { id: 'wrapping', label: '🎨 Wrapping' },
-];
-
 export function PricingSection() {
+  const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState('detailing');
+
+  const tabs = [
+    { id: 'detailing', labelKey: 'pricing.tabDetailing' },
+    { id: 'wrapping', labelKey: 'pricing.tabWrapping' },
+  ];
 
   const packages = activeTab === 'detailing' ? detailingPackages : wrappingPackages;
 
@@ -24,8 +25,8 @@ export function PricingSection() {
     <section className="relative bg-surface py-20 md:py-28">
       <Container>
         <SectionHeading
-          title="Onze **Pakketten**"
-          subtitle="Transparante prijzen, premium kwaliteit. Kies het pakket dat bij u past."
+          title={t('pricing.title')}
+          subtitle={t('pricing.subtitle')}
         />
 
         {/* Tab Switcher */}
@@ -46,7 +47,7 @@ export function PricingSection() {
                     transition={{ type: 'spring', duration: 0.5 }}
                   />
                 )}
-                <span className="relative z-10">{tab.label}</span>
+                <span className="relative z-10">{t(tab.labelKey)}</span>
               </button>
             ))}
           </div>
@@ -63,7 +64,7 @@ export function PricingSection() {
             className="grid gap-6 md:grid-cols-3"
           >
             {packages.map((pkg, i) => (
-              <PricingCard key={pkg.id} pkg={pkg} index={i} />
+              <PricingCard key={pkg.id} pkg={pkg} index={i} category={activeTab} />
             ))}
           </motion.div>
         </AnimatePresence>
@@ -71,29 +72,29 @@ export function PricingSection() {
         {/* View all link */}
         <div className="mt-10 text-center">
           <Button variant="ghost" href="/pakketten">
-            Bekijk alle pakketten →
+            {t('pricing.viewAll')}
           </Button>
         </div>
 
         {/* Mechanical Services Table */}
         <div className="mt-16">
           <h3 className="mb-6 text-center text-2xl font-bold text-text">
-            Mechanische <span className="text-primary">Services</span>
+            {t('pricing.mechanicalTitle')} <span className="text-primary">{t('pricing.mechanicalHighlight')}</span>
           </h3>
           <div className="mx-auto max-w-2xl overflow-hidden rounded-2xl border border-border bg-surface-card">
-            {mechanicalServices.map((service, i) => (
+            {(t('pricing.mechanical', { returnObjects: true }) as { name: string; price: string }[]).map((item, i, arr) => (
               <motion.div
-                key={service.name}
+                key={item.name}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.08 }}
                 className={`flex items-center justify-between px-6 py-4 ${
-                  i !== mechanicalServices.length - 1 ? 'border-b border-border' : ''
+                  i !== arr.length - 1 ? 'border-b border-border' : ''
                 }`}
               >
-                <span className="text-text">{service.name}</span>
-                <span className="font-semibold text-accent">{service.price}</span>
+                <span className="text-text">{item.name}</span>
+                <span className="font-semibold text-accent">{item.price}</span>
               </motion.div>
             ))}
           </div>

@@ -1,0 +1,360 @@
+{
+  "nav": {
+    "home": "Strona główna",
+    "services": "Usługi",
+    "packages": "Pakiety",
+    "portfolio": "Portfolio",
+    "about": "O nas",
+    "contact": "Kontakt"
+  },
+  "common": {
+    "appointment": "Wizyta",
+    "makeAppointment": "Umów wizytę →",
+    "viewServices": "Zobacz usługi →",
+    "contactUs": "Skontaktuj się →",
+    "backHome": "Powrót na stronę główną",
+    "whatsappChat": "Czat przez WhatsApp →",
+    "whatsappDirect": "Bezpośrednio przez WhatsApp →",
+    "chatWithUs": "Napisz do nas!",
+    "chatWhatsApp": "Czat przez WhatsApp",
+    "whatsappDefault": "Cześć! Jestem zainteresowany/a waszymi usługami.",
+    "moreInfo": "Więcej informacji",
+    "popular": "⭐ Popularne",
+    "toggleMenu": "Otwórz menu",
+    "close": "Zamknij",
+    "previous": "Poprzedni",
+    "next": "Następny",
+    "pause": "Pauza",
+    "soundOn": "Włącz dźwięk",
+    "soundOff": "Wyłącz dźwięk",
+    "expand": "Powiększ",
+    "reel": "▶ Reel",
+    "follow": "Obserwuj",
+    "followOnInstagram": "Obserwuj na Instagramie",
+    "comingSoon": "Wkrótce dostępne — skontaktuj się z nami, aby uzyskać więcej informacji",
+    "websiteBy": "Strona stworzona przez",
+    "allRightsReserved": "© 2026 Shine & Drive — Wszelkie prawa zastrzeżone.",
+    "quickLinks": "Szybkie linki",
+    "openingHours": "Godziny otwarcia",
+    "address": "Adres",
+    "phone": "Telefon",
+    "phoneWhatsApp": "Telefon / WhatsApp",
+    "thuSat": "Czw–Sob: 09:00–18:00",
+    "otherDays": "Pozostałe dni po umówieniu",
+    "bookPackage": "Zarezerwuj pakiet →",
+    "requestQuote": "Poproś o wycenę →",
+    "mapTitle": "Lokalizacja Shine & Drive"
+  },
+  "hero": {
+    "heading": "TWÓJ SAMOCHÓD, NASZA PASJA",
+    "subtitle": "Od naprawy po blask showroomu — wszystko pod jednym dachem w Zoetermeer"
+  },
+  "stats": {
+    "experience": "Lat doświadczenia",
+    "rating": "Ocena klientów ⭐",
+    "cars": "Obsłużonych aut",
+    "allInOne": "Warsztat + Detailing + Wrapping"
+  },
+  "services": {
+    "title": "Nasze **Usługi**",
+    "subtitle": "Od pełnego detailingu po car wrapping i naprawy mechaniczne — robimy to wszystko.",
+    "notSure": "Nie wiesz, jakiej usługi potrzebujesz?",
+    "contactUs": "Skontaktuj się →",
+    "detailing": {
+      "title": "Auto Detailing",
+      "description": "Profesjonalne czyszczenie wnętrza i nadwozia, korekta lakieru, powłoki i polerowanie."
+    },
+    "wrapping": {
+      "title": "Car Wrapping",
+      "description": "Pełne i częściowe oklejanie, zmiana koloru i folia ochronna."
+    },
+    "reparaties": {
+      "title": "Naprawy ogólne",
+      "description": "Przeglądy, hamulce, olej, opony i przygotowanie do przeglądu technicznego."
+    },
+    "elektromechanisch": {
+      "title": "Naprawy elektromechaniczne",
+      "description": "Diagnostyka i naprawa systemów elektrycznych i mechanicznych."
+    },
+    "tuning": {
+      "title": "Tuning mechaniczny",
+      "description": "Tuning silnika, poprawa osiągów i chip tuning."
+    },
+    "mobiel": {
+      "title": "Serwis mobilny",
+      "description": "Przyjeżdżamy do Ciebie — detailing i naprawy na miejscu."
+    }
+  },
+  "whyChooseUs": {
+    "title": "Dlaczego **Shine & Drive**?",
+    "subtitle": "Dowiedz się, dlaczego jesteśmy najlepszym wyborem dla Twojego auta w Zoetermeer",
+    "allInOne": {
+      "title": "Wszystko w jednym",
+      "description": "Naprawa, detailing i wrapping pod jednym dachem"
+    },
+    "experience": {
+      "title": "12+ lat doświadczenia",
+      "description": "Ponad dekada zaufania w Zoetermeer"
+    },
+    "transparent": {
+      "title": "Przejrzysta obsługa",
+      "description": "Zdjęcia i faktura przy każdej usłudze — bez niespodzianek"
+    },
+    "flexible": {
+      "title": "Elastyczni i szybcy",
+      "description": "Dostępni również poza godzinami otwarcia po umówieniu"
+    }
+  },
+  "videoShowreel": {
+    "eyebrow": "Zobacz nas w akcji",
+    "heading1": "Rzemiosło",
+    "heading2": "W każdym detalu",
+    "paragraph": "Każdy samochód zasługuje na taką samą uwagę. Od polerowania maszynowego po powłokę ceramiczną — dostarczamy jakość showroomową.",
+    "cta": "Umów wizytę",
+    "playButton": "Oglądaj z dźwiękiem"
+  },
+  "pricing": {
+    "title": "Nasze **Pakiety**",
+    "subtitle": "Przejrzyste ceny, jakość premium. Wybierz pakiet odpowiedni dla Ciebie.",
+    "tabDetailing": "🚗 Detailing",
+    "tabWrapping": "🎨 Wrapping",
+    "tabReparatie": "🔧 Naprawa",
+    "viewAll": "Zobacz wszystkie pakiety →",
+    "mechanicalTitle": "Usługi",
+    "mechanicalHighlight": "mechaniczne",
+    "detailing": {
+      "basis": {
+        "title": "Czyszczenie podstawowe",
+        "whatsapp": "Cześć! Chciałbym zarezerwować pakiet Czyszczenie podstawowe.",
+        "features": [
+          "Ręczne mycie nadwozia (karoseria + felgi)",
+          "Odkurzanie wnętrza",
+          "Szyby wewnątrz i na zewnątrz",
+          "Czyszczenie deski rozdzielczej i paneli",
+          "Nabłyszczanie opon"
+        ]
+      },
+      "premium": {
+        "title": "Czyszczenie premium",
+        "whatsapp": "Cześć! Chciałbym zarezerwować pakiet Czyszczenie premium.",
+        "features": [
+          "Wszystko z Czyszczenia podstawowego",
+          "Głębokie czyszczenie siedzeń (tkanina lub skóra)",
+          "Pielęgnacja plastików + ochrona",
+          "Odświeżanie zapachu wnętrza",
+          "Woskowanie nadwozia"
+        ]
+      },
+      "exclusive": {
+        "title": "Exclusive Deep Clean",
+        "whatsapp": "Cześć! Chciałbym zarezerwować pakiet Exclusive Deep Clean.",
+        "features": [
+          "Wszystko z Czyszczenia premium",
+          "Czyszczenie podsufitki",
+          "Czyszczenie komory silnika",
+          "Korekta lakieru + glinkowanie",
+          "Powłoka ceramiczna (podstawowa)"
+        ]
+      }
+    },
+    "wrapping": {
+      "gedeeltelijk": {
+        "title": "Częściowe oklejenie",
+        "whatsapp": "Cześć! Chciałbym uzyskać wycenę częściowego oklejenia.",
+        "features": [
+          "Obudowy lusterek, dach lub maska",
+          "Wysokiej jakości folia winylowa",
+          "Profesjonalny montaż",
+          "W cenie przygotowanie i czyszczenie"
+        ]
+      },
+      "volledig": {
+        "title": "Pełne oklejenie",
+        "whatsapp": "Cześć! Chciałbym uzyskać wycenę pełnego oklejenia.",
+        "features": [
+          "Pełna zmiana koloru",
+          "Folie premium (3M / Avery)",
+          "Bezszwowe wykończenie",
+          "3+ lata gwarancji na folię",
+          "Konsultacja projektowa"
+        ]
+      },
+      "premium-ppf": {
+        "title": "Premium Wrap + PPF",
+        "whatsapp": "Cześć! Chciałbym uzyskać wycenę Premium Wrap + PPF.",
+        "features": [
+          "Wszystko z Pełnego oklejenia",
+          "Folia ochronna PPF na wrażliwych częściach",
+          "Wykończenie high gloss lub satin do wyboru",
+          "5+ lat gwarancji",
+          "Indywidualny projekt + doradztwo kolorystyczne"
+        ]
+      }
+    },
+    "mechanical": [
+      { "name": "Wymiana oleju", "price": "od €59,-" },
+      { "name": "Wymiana klocków hamulcowych", "price": "od €89,-" },
+      { "name": "Przygotowanie do przeglądu + kontrola", "price": "od €39,-" },
+      { "name": "Wymiana opon (4x)", "price": "od €49,-" },
+      { "name": "Diagnostyka i odczyt kodów błędów", "price": "od €39,-" },
+      { "name": "Pasek rozrządu", "price": "od €349,-" }
+    ]
+  },
+  "gallery": {
+    "title": "Nasze **Prace**",
+    "subtitle": "Od brudu po showroom — zobacz transformacje",
+    "cta": "Zobacz portfolio →"
+  },
+  "reviews": {
+    "title": "Co Mówią Nasi **Klienci**",
+    "ratingText": "— na podstawie opinii klientów",
+    "1": "Szybka reakcja, przyjazny i dotrzymuje umów. Świetna obsługa!",
+    "2": "Szybka odpowiedź, bardzo przyjazny. Zawsze na czas. Polecam!",
+    "3": "Wszystko perfekcyjnie zorganizowane. Szybko, niezawodnie i na czas. Super!",
+    "4": "Bardzo uważny i przyjazny. Reaguje błyskawicznie i dotrzymuje umów.",
+    "5": "Fachowa obsługa, uczciwe ceny. Mój stały adres dla wszystkiego związanego z autem."
+  },
+  "brandLogos": {
+    "header": "Marki premium — pracujemy z nimi"
+  },
+  "instagram": {
+    "title": "Obserwuj Nas na **Instagramie**",
+    "bio": "Auto Detailing • Car Wrapping • Naprawy — Zoetermeer 📍",
+    "captions": {
+      "1": "Czyszczenie wnętrza — od brudu do showroomu 🧼✨",
+      "2": "Polerowanie do perfekcji 💎🚗",
+      "3": "Klasyczny Mercedes — czysty i wydetailowany 🖤",
+      "4": "Naprawa mechaniczna — Audi RS6 🔧🏎️"
+    }
+  },
+  "contactCTA": {
+    "heading": "Gotowy, aby Twoje Auto",
+    "headingHighlight": "Błyszczało",
+    "subtitle": "Skontaktuj się już dziś — chętnie pomożemy!"
+  },
+  "hours": {
+    "monday": "Poniedziałek",
+    "tuesday": "Wtorek",
+    "wednesday": "Środa",
+    "thursday": "Czwartek",
+    "friday": "Piątek",
+    "saturday": "Sobota",
+    "sunday": "Niedziela",
+    "byAppointment": "Po umówieniu",
+    "closed": "Zamknięte",
+    "regular": "09:00 – 18:00"
+  },
+  "footer": {
+    "about": "Twój Samochód, Nasza Pasja — Od Naprawy po Blask Showroomu. Jedyny warsztat + detailing + oklejanie studio w Zoetermeer."
+  },
+  "videoCategories": {
+    "all": "Wszystko",
+    "interieur": "Wnętrze",
+    "detailing": "Detailing",
+    "exterieur": "Nadwozie",
+    "wrapping": "Wrapping",
+    "resultaat": "Rezultat"
+  },
+  "videos": {
+    "6158070": "Czyszczenie wnętrza szczotką i preparatem",
+    "6158064": "Wykończenie wnętrza — ręczne polerowanie",
+    "6158119": "Odkurzanie deski rozdzielczej — głębokie czyszczenie",
+    "6159207": "Polerowanie — czarny lakier do lustrzanego połysku",
+    "6157968": "Polerowanie maszynowe — polerka i pad",
+    "6157983": "Naklejanie taśmy — przygotowanie do oklejania",
+    "6157787": "Zbliżenie — odbicie w lakierze",
+    "6157786": "Zbliżenie — linia lakieru nadwozia",
+    "6157781": "Zbliżenie lakieru — głęboki połysk",
+    "6159201": "Rezultat — lśniący czarny lakier",
+    "6159204": "Rezultat — czysty samochód gotowy do odbioru",
+    "6159374": "Rezultat — głębokie odbicie w lakierze",
+    "6161372": "Rezultat — perfekcyjne wykończenie",
+    "6159208": "Rezultat — samochód gotowy jak ze showroomu"
+  },
+  "pages": {
+    "home": {
+      "metaTitle": "Shine & Drive — Warsztat samochodowy, Detailing & Car Wrapping w Zoetermeer",
+      "metaDescription": "Jedyny warsztat + detailing + oklejanie w Zoetermeer. 12+ lat doświadczenia, ocena 5.0★. Naprawy, detailing i car wrapping pod jednym dachem. Zadzwoń 06-31793774."
+    },
+    "diensten": {
+      "metaTitle": "Usługi — Shine & Drive Zoetermeer",
+      "metaDescription": "Odkryj nasze usługi: auto detailing, car wrapping, naprawy i więcej.",
+      "heading": "NASZE",
+      "headingHighlight": "USŁUGI"
+    },
+    "pakketten": {
+      "metaTitle": "Pakiety — Shine & Drive Zoetermeer",
+      "metaDescription": "Zobacz nasze pakiety detailingu, car wrappingu i napraw. Przejrzyste ceny, jakość premium.",
+      "heading": "NASZE",
+      "headingHighlight": "PAKIETY",
+      "subtitle": "Przejrzyste ceny, jakość premium",
+      "readyToBook": "Gotowy, aby",
+      "readyToBookHighlight": "zarezerwować",
+      "readyToBookText": "Skontaktuj się, a my zaplanujemy Twoją wizytę."
+    },
+    "portfolio": {
+      "metaTitle": "Portfolio — Shine & Drive Zoetermeer",
+      "metaDescription": "Zobacz nasze portfolio z projektami detailingu, wrappingu i napraw.",
+      "heading": "NASZE",
+      "headingHighlight": "PORTFOLIO"
+    },
+    "overOns": {
+      "metaTitle": "O nas — Shine & Drive Zoetermeer",
+      "metaDescription": "Dowiedz się więcej o Shine & Drive, Twoim zaufanym warsztacie i studio detailingowym w Zoetermeer.",
+      "heading": "O",
+      "headingHighlight": "NAS"
+    },
+    "contact": {
+      "metaTitle": "Kontakt — Shine & Drive Zoetermeer",
+      "metaDescription": "Skontaktuj się z Shine & Drive. Zadzwoń, napisz na WhatsApp lub odwiedź nas: Industrieweg 6E, Zoetermeer.",
+      "heading": "KONTAKT",
+      "subtitle": "Chętnie pomożemy — skontaktuj się już dziś",
+      "formTitle": "Wyślij nam wiadomość",
+      "name": "Imię",
+      "namePlaceholder": "Twoje imię",
+      "email": "E-mail",
+      "emailPlaceholder": "twoj@email.pl",
+      "phoneLbl": "Telefon",
+      "phonePlaceholder": "06-12345678",
+      "service": "Usługa",
+      "selectService": "Wybierz usługę",
+      "optDetailing": "Auto Detailing",
+      "optWrapping": "Car Wrapping",
+      "optReparatie": "Naprawy ogólne",
+      "optElektro": "Naprawy elektromechaniczne",
+      "optTuning": "Tuning mechaniczny",
+      "optMobiel": "Serwis mobilny",
+      "message": "Wiadomość",
+      "messagePlaceholder": "Opowiedz nam więcej o swoich potrzebach...",
+      "send": "Wyślij wiadomość",
+      "faqTitle": "Często zadawane",
+      "faqHighlight": "pytania",
+      "faqs": [
+        {
+          "q": "Jak mogę umówić wizytę?",
+          "a": "Możesz łatwo umówić wizytę przez WhatsApp, telefonicznie lub przez nasz formularz kontaktowy. Zazwyczaj odpowiadamy w ciągu godziny."
+        },
+        {
+          "q": "Czy oferujecie usługę odbioru i dostawy?",
+          "a": "Tak, oferujemy serwis mobilny. Skontaktuj się z nami, aby poznać możliwości w Twoim regionie."
+        },
+        {
+          "q": "Jak długo trwa detailing?",
+          "a": "Czyszczenie podstawowe trwa średnio 2-3 godziny. Pakiety premium i exclusive mogą trwać 4-8 godzin, w zależności od stanu samochodu."
+        },
+        {
+          "q": "Czy dajecie gwarancję na oklejanie?",
+          "a": "Tak, dajemy 3+ lata gwarancji na pełne oklejenie i 5+ lat na nasze pakiety Premium Wrap + PPF."
+        }
+      ]
+    },
+    "notFound": {
+      "metaTitle": "404 — Strona nie znaleziona | Shine & Drive",
+      "metaDescription": "Ta strona nie istnieje. Wróć na stronę główną Shine & Drive.",
+      "heading": "404",
+      "subheading": "Strona nie znaleziona",
+      "text": "Strona, której szukasz, nie istnieje lub została przeniesiona.",
+      "cta": "Powrót na stronę główną →"
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
@@ -7,6 +8,7 @@ import { ReviewCard } from '@/components/ui/ReviewCard';
 import { reviews } from '@/data/reviews';
 
 export function Reviews() {
+  const { t } = useTranslation();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -23,7 +25,7 @@ export function Reviews() {
     <section className="relative bg-surface py-20 md:py-28">
       <Container>
         <SectionHeading
-          title="Wat Onze **Klanten** Zeggen"
+          title={t('reviews.title')}
         />
 
         {/* Rating badge */}
@@ -39,7 +41,7 @@ export function Reviews() {
             ))}
           </div>
           <span className="text-lg font-bold text-text">5.0 / 5</span>
-          <span className="text-text-muted">— op basis van klantbeoordelingen</span>
+          <span className="text-text-muted">{t('reviews.ratingText')}</span>
         </motion.div>
 
         {/* Scroll controls */}

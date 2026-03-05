@@ -1,26 +1,30 @@
+import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Clock, MessageCircle } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
-import { WHATSAPP_URL, WHATSAPP_NUMBER, ADDRESS } from '@/lib/utils';
-
-const contactInfo = [
-  { icon: MapPin, label: 'Adres', value: ADDRESS },
-  { icon: Phone, label: 'Telefoon', value: WHATSAPP_NUMBER },
-  { icon: Clock, label: 'Openingstijden', value: 'Do–Za: 09:00–18:00' },
-];
-
-const hours = [
-  { day: 'Maandag', time: 'Op afspraak' },
-  { day: 'Dinsdag', time: 'Op afspraak' },
-  { day: 'Woensdag', time: 'Op afspraak' },
-  { day: 'Donderdag', time: '09:00 – 18:00' },
-  { day: 'Vrijdag', time: '09:00 – 18:00' },
-  { day: 'Zaterdag', time: '09:00 – 18:00' },
-  { day: 'Zondag', time: 'Gesloten' },
-];
+import { getWhatsAppUrl, WHATSAPP_NUMBER, ADDRESS } from '@/lib/utils';
 
 export function ContactCTA() {
+  const { t } = useTranslation();
+  const whatsappUrl = getWhatsAppUrl(t('common.whatsappDefault'));
+
+  const contactInfo = [
+    { icon: MapPin, label: t('common.address'), value: ADDRESS },
+    { icon: Phone, label: t('common.phone'), value: WHATSAPP_NUMBER },
+    { icon: Clock, label: t('common.openingHours'), value: t('common.thuSat') },
+  ];
+
+  const hours = [
+    { day: t('hours.monday'), time: t('hours.byAppointment') },
+    { day: t('hours.tuesday'), time: t('hours.byAppointment') },
+    { day: t('hours.wednesday'), time: t('hours.byAppointment') },
+    { day: t('hours.thursday'), time: t('hours.regular') },
+    { day: t('hours.friday'), time: t('hours.regular') },
+    { day: t('hours.saturday'), time: t('hours.regular') },
+    { day: t('hours.sunday'), time: t('hours.closed') },
+  ];
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary/20 via-surface to-accent/10 py-20 md:py-28">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(123,47,254,0.15),transparent_60%)]" />
@@ -34,10 +38,10 @@ export function ContactCTA() {
           className="mb-12 text-center"
         >
           <h2 className="text-3xl font-bold text-text sm:text-4xl lg:text-5xl">
-            Klaar om uw Auto te Laten <span className="text-primary">Shinen</span>?
+            {t('contactCTA.heading')} <span className="text-primary">{t('contactCTA.headingHighlight')}</span>?
           </h2>
           <p className="mt-4 text-lg text-text-muted">
-            Neem vandaag nog contact op — wij helpen u graag!
+            {t('contactCTA.subtitle')}
           </p>
         </motion.div>
 
@@ -67,7 +71,7 @@ export function ContactCTA() {
 
             {/* Hours table */}
             <div className="mt-6 rounded-2xl border border-border bg-surface-card p-4">
-              <h4 className="mb-3 font-semibold text-text">Openingstijden</h4>
+              <h4 className="mb-3 font-semibold text-text">{t('common.openingHours')}</h4>
               {hours.map((h) => (
                 <div
                   key={h.day}
@@ -80,9 +84,9 @@ export function ContactCTA() {
             </div>
 
             {/* WhatsApp CTA */}
-            <Button variant="whatsapp" size="lg" href={WHATSAPP_URL} className="w-full">
+            <Button variant="whatsapp" size="lg" href={whatsappUrl} className="w-full">
               <MessageCircle className="h-5 w-5" />
-              Chat via WhatsApp →
+              {t('common.whatsappChat')}
             </Button>
           </motion.div>
 
@@ -100,7 +104,7 @@ export function ContactCTA() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Shine & Drive locatie"
+              title={t('common.mapTitle')}
             />
           </motion.div>
         </div>

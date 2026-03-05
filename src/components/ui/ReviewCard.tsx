@@ -1,5 +1,6 @@
 import { Star } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import type { Review } from '@/data/reviews';
 
 interface ReviewCardProps {
@@ -8,6 +9,8 @@ interface ReviewCardProps {
 }
 
 export function ReviewCard({ review, index }: ReviewCardProps) {
+  const { t } = useTranslation();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -21,7 +24,7 @@ export function ReviewCard({ review, index }: ReviewCardProps) {
           <Star key={i} className="h-4 w-4 fill-accent text-accent" />
         ))}
       </div>
-      <p className="mb-4 text-sm italic text-text-muted">"{review.text}"</p>
+      <p className="mb-4 text-sm italic text-text-muted">"{t(`reviews.${review.id}`)}"</p>
       <div className="flex items-center justify-between">
         <span className="font-semibold text-text">{review.name}</span>
         <span className="rounded-full bg-primary/10 px-2 py-0.5 text-xs text-primary">

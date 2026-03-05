@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Container } from '@/components/ui/Container';
 
 interface Brand {
@@ -29,11 +30,12 @@ const brands: Brand[] = [
 ];
 
 export function BrandLogos() {
+  const { t } = useTranslation();
   return (
     <section className="relative overflow-hidden border-y border-border bg-surface-light py-12">
       <Container>
         <p className="mb-8 text-center text-sm font-medium tracking-wide text-text-dim uppercase">
-          Premium merken — wij werken ermee
+          {t('brandLogos.header')}
         </p>
       </Container>
 

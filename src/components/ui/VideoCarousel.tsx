@@ -1,4 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Pause, Volume2, VolumeX, ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -11,6 +12,7 @@ interface VideoCardProps {
 }
 
 function VideoCard({ video, index, onExpand }: VideoCardProps) {
+  const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -85,7 +87,7 @@ function VideoCard({ video, index, onExpand }: VideoCardProps) {
             <button
               onClick={togglePlay}
               className="flex h-8 w-8 items-center justify-center rounded-lg bg-black/60 text-white backdrop-blur-sm transition-colors hover:bg-black/80"
-              aria-label="Pauzeren"
+              aria-label={t('common.pause')}
             >
               <Pause className="h-4 w-4" />
             </button>
@@ -93,14 +95,14 @@ function VideoCard({ video, index, onExpand }: VideoCardProps) {
           <button
             onClick={toggleMute}
             className="flex h-8 w-8 items-center justify-center rounded-lg bg-black/60 text-white backdrop-blur-sm transition-colors hover:bg-black/80"
-            aria-label={isMuted ? 'Geluid aan' : 'Geluid uit'}
+            aria-label={isMuted ? t('common.soundOn') : t('common.soundOff')}
           >
             {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
           </button>
           <button
             onClick={() => onExpand(video)}
             className="flex h-8 w-8 items-center justify-center rounded-lg bg-black/60 text-white backdrop-blur-sm transition-colors hover:bg-black/80"
-            aria-label="Vergroten"
+            aria-label={t('common.expand')}
           >
             <Maximize2 className="h-4 w-4" />
           </button>
@@ -109,14 +111,14 @@ function VideoCard({ video, index, onExpand }: VideoCardProps) {
         {/* Category badge — stays on top of video */}
         <div className="absolute top-3 left-3">
           <span className="rounded-md bg-primary/80 px-2.5 py-1 text-[11px] font-semibold tracking-wide text-white uppercase backdrop-blur-sm">
-            {video.category}
+            {t(`videoCategories.${video.category}`)}
           </span>
         </div>
       </div>
 
       {/* Title below the video */}
       <div className="mt-2.5 px-1">
-        <p className="text-sm font-medium text-text">{video.title}</p>
+        <p className="text-sm font-medium text-text">{t(`videos.${video.id}`)}</p>
         <p className="text-xs text-text-dim">{video.duration}s</p>
       </div>
     </motion.div>
@@ -126,6 +128,7 @@ function VideoCard({ video, index, onExpand }: VideoCardProps) {
 /* ━━━━━━━━━━━━━ Lightbox ━━━━━━━━━━━━━ */
 
 function VideoLightbox({ video, onClose }: { video: PexelsVideo; onClose: () => void }) {
+  const { t } = useTranslation();
   const videoRef = useRef<HTMLVideoElement>(null);
 
   return (
@@ -156,12 +159,12 @@ function VideoLightbox({ video, onClose }: { video: PexelsVideo; onClose: () => 
         <button
           onClick={onClose}
           className="absolute -top-3 -right-3 flex h-10 w-10 items-center justify-center rounded-full bg-surface-card text-text shadow-lg transition-colors hover:bg-primary hover:text-white"
-          aria-label="Sluiten"
+          aria-label={t('common.close')}
         >
           <X className="h-5 w-5" />
         </button>
         <div className="mt-3 text-center">
-          <p className="text-sm font-medium text-white">{video.title}</p>
+          <p className="text-sm font-medium text-white">{t(`videos.${video.id}`)}</p>
         </div>
       </motion.div>
     </motion.div>
@@ -176,6 +179,7 @@ interface VideoCarouselStripProps {
 }
 
 function VideoCarouselStrip({ videos, onExpand }: VideoCarouselStripProps) {
+  const { t } = useTranslation();
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = useCallback((direction: 'left' | 'right') => {
@@ -191,14 +195,14 @@ function VideoCarouselStrip({ videos, onExpand }: VideoCarouselStripProps) {
       <button
         onClick={() => scroll('left')}
         className="absolute top-1/2 -left-4 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface-card/90 text-text shadow-lg backdrop-blur-sm transition-colors hover:bg-primary hover:text-white lg:flex"
-        aria-label="Vorige"
+        aria-label={t('common.previous')}
       >
         <ChevronLeft className="h-5 w-5" />
       </button>
       <button
         onClick={() => scroll('right')}
         className="absolute top-1/2 -right-4 z-10 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface-card/90 text-text shadow-lg backdrop-blur-sm transition-colors hover:bg-primary hover:text-white lg:flex"
-        aria-label="Volgende"
+        aria-label={t('common.next')}
       >
         <ChevronRight className="h-5 w-5" />
       </button>
