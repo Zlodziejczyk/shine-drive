@@ -3,11 +3,18 @@ import { Container } from '@/components/ui/Container';
 interface Brand {
   name: string;
   /** Simple Icons slug — served via cdn.simpleicons.org */
-  slug: string;
+  slug?: string;
+  /** Inline SVG data-URI for brands missing from Simple Icons */
+  svgUri?: string;
 }
 
+/* Mercedes three-pointed star as a data-URI (not on Simple Icons) */
+const mercedesSvg = `data:image/svg+xml,${encodeURIComponent(
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="29"/><line x1="32" y1="3" x2="32" y2="32"/><line x1="32" y1="32" x2="7.15" y2="46.35"/><line x1="32" y1="32" x2="56.85" y2="46.35"/><circle cx="32" cy="32" r="29"/></svg>`,
+)}`;
+
 const brands: Brand[] = [
-  { name: 'Mercedes-Benz', slug: 'mercedesbenz' },
+  { name: 'Mercedes-Benz', svgUri: mercedesSvg },
   { name: 'BMW', slug: 'bmw' },
   { name: 'Audi', slug: 'audi' },
   { name: 'Porsche', slug: 'porsche' },
@@ -42,7 +49,7 @@ export function BrandLogos() {
               className="mx-10 flex shrink-0 flex-col items-center justify-center gap-2.5 opacity-40 transition-opacity duration-300 hover:opacity-90"
             >
               <img
-                src={`https://cdn.simpleicons.org/${brand.slug}/ffffff`}
+                src={brand.svgUri ?? `https://cdn.simpleicons.org/${brand.slug}/ffffff`}
                 alt={brand.name}
                 className="h-10 w-10 object-contain"
                 loading="lazy"
