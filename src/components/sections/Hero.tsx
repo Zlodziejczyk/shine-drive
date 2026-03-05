@@ -18,11 +18,11 @@ export function Hero() {
         muted
         loop
         playsInline
-        className="absolute inset-0 h-full w-full object-cover opacity-20"
+        className="absolute inset-0 h-full w-full object-cover opacity-30"
       />
 
       {/* Overlays */}
-      <div className="absolute inset-0 bg-linear-to-b from-surface via-surface/90 to-surface" />
+      <div className="absolute inset-0 bg-linear-to-b from-surface via-surface/80 to-surface" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(123,47,254,0.15),transparent_70%)]" />
       <ParticleBackground />
       <GradientOrb className="-top-20 -left-20" size="lg" color="purple" />

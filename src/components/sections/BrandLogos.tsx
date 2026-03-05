@@ -7,7 +7,7 @@ interface Brand {
 }
 
 const brands: Brand[] = [
-  { name: 'Mercedes-Benz', slug: 'mercedes' },
+  { name: 'Mercedes-Benz', slug: 'mercedesbenz' },
   { name: 'BMW', slug: 'bmw' },
   { name: 'Audi', slug: 'audi' },
   { name: 'Porsche', slug: 'porsche' },
@@ -17,10 +17,8 @@ const brands: Brand[] = [
   { name: 'Rolls-Royce', slug: 'rollsroyce' },
   { name: 'Maserati', slug: 'maserati' },
   { name: 'Tesla', slug: 'tesla' },
-  { name: 'Land Rover', slug: 'landrover' },
   { name: 'Volkswagen', slug: 'volkswagen' },
   { name: 'Aston Martin', slug: 'astonmartin' },
-  { name: 'Bugatti', slug: 'bugatti' },
 ];
 
 export function BrandLogos() {
