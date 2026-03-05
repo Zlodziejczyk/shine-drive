@@ -13,10 +13,10 @@ export function ReviewCard({ review, index }: ReviewCardProps) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
+      transition={{ duration: 0.4, delay: index * 0.05 }}
       className="min-w-[300px] max-w-[350px] shrink-0 rounded-2xl border border-border bg-surface-card p-6"
     >
       <div className="mb-3 flex gap-1">
