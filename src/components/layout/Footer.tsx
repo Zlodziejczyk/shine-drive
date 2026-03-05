@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Instagram, MessageCircle, Phone, MapPin, Clock } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { getWhatsAppUrl, INSTAGRAM_URL, ADDRESS, WHATSAPP_NUMBER } from '@/lib/utils';
+import { DiamondIcon } from '@/components/ui/DiamondIcon';
 
 const quickLinks = [
   { key: 'nav.home', href: '/' },
@@ -23,12 +24,11 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Column 1 - Logo + About */}
           <div>
-            <div className="mb-4">
-              <img
-                src="/images/logo.svg"
-                alt="Shine & Drive"
-                className="h-16 w-auto"
-              />
+            <div className="mb-4 flex items-center gap-2 text-2xl font-bold">
+              <DiamondIcon className="h-7 w-7" />
+              <span className="text-white">SHINE</span>
+              <span className="text-accent"> & </span>
+              <span className="text-primary">DRIVE</span>
             </div>
             <p className="mb-6 text-sm leading-relaxed text-text-muted">
               {t('footer.about')}

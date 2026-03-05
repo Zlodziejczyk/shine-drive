@@ -7,6 +7,7 @@ import { ParticleBackground } from '@/components/effects/ParticleBackground';
 import { GradientOrb } from '@/components/effects/GradientOrb';
 import { getWhatsAppUrl } from '@/lib/utils';
 import { heroVideo } from '@/data/pexels-videos';
+import { DiamondIcon } from '@/components/ui/DiamondIcon';
 
 export function Hero() {
   const { t } = useTranslation();
@@ -35,16 +36,18 @@ export function Hero() {
       <Container className="relative z-10 text-center">
         {/* Logo */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-8"
+          className="mb-6 flex items-center justify-center gap-3"
         >
-          <img
-            src="/images/logo.svg"
-            alt="Shine & Drive"
-            className="mx-auto h-28 w-auto sm:h-36 md:h-40"
-          />
+          <DiamondIcon className="h-8 w-8 sm:h-10 sm:w-10" />
+          <span className="text-lg font-bold tracking-[0.3em] uppercase text-text-muted sm:text-xl">
+            <span className="text-white">SHINE</span>
+            <span className="text-accent"> & </span>
+            <span className="text-primary">DRIVE</span>
+          </span>
+          <DiamondIcon className="h-8 w-8 sm:h-10 sm:w-10" />
         </motion.div>
 
         {/* Main heading */}

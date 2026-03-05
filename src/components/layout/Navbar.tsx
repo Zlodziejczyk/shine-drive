@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { cn, getWhatsAppUrl } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
+import { DiamondIcon } from '@/components/ui/DiamondIcon';
 
 const navLinks = [
   { key: 'nav.home', href: '/' },
@@ -52,12 +53,8 @@ export function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 text-xl font-bold">
-            <img
-              src="/images/logo-no-text.svg"
-              alt="Shine & Drive"
-              className="h-9 w-9"
-            />
-            <span className="hidden sm:inline">
+            <DiamondIcon className="h-7 w-7" />
+            <span>
               <span className="text-white">SHINE</span>
               <span className="text-accent"> & </span>
               <span className="text-primary">DRIVE</span>
