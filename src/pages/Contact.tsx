@@ -200,7 +200,7 @@ export default function Contact() {
               {/* Map */}
               <div className="overflow-hidden rounded-2xl border border-border">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2450.8!2d4.4849!3d52.0548!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b0347e0c1b3d%3A0x0!2sIndustrieweg%206%2C%202712%20EA%20Zoetermeer!5e0!3m2!1snl!2snl!4v1"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2451.2!2d4.5069211!3d52.0482245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5cecee9c12487%3A0x8d3037719600177!2sIndustrieweg%206%2C%202712%20LB%20Zoetermeer!5e0!3m2!1snl!2snl!4v1"
                   className="h-64 w-full border-0 grayscale invert-[0.9]"
                   allowFullScreen
                   loading="lazy"
