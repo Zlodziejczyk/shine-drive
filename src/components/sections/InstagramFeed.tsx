@@ -34,26 +34,20 @@ interface InstaPost {
   type: 'image' | 'reel' | 'carousel';
 }
 
-// Replace these with real post shortcodes from @shine_drive_studio
 const instaPosts: InstaPost[] = [
-  { id: '1', shortcode: 'POST_1', caption: 'Full detail op deze BMW M4 🖤✨', likes: 87, comments: 12, type: 'image' },
-  { id: '2', shortcode: 'POST_2', caption: 'Interieur transformatie — van vuil naar nieuw 🧼', likes: 124, comments: 18, type: 'carousel' },
-  { id: '3', shortcode: 'POST_3', caption: 'Matte wrap op Mercedes C-Klasse 🔥', likes: 203, comments: 31, type: 'image' },
-  { id: '4', shortcode: 'POST_4', caption: 'Keramische coating resultaat ✨', likes: 156, comments: 22, type: 'reel' },
-  { id: '5', shortcode: 'POST_5', caption: 'PPF bescherming op Tesla Model 3 🛡️', likes: 98, comments: 14, type: 'image' },
-  { id: '6', shortcode: 'POST_6', caption: 'Lakcorrectie — 50/50 resultaat 🤩', likes: 178, comments: 25, type: 'carousel' },
-  { id: '7', shortcode: 'POST_7', caption: 'Carbon wrap op Audi RS6 dak 🏎️', likes: 145, comments: 19, type: 'image' },
-  { id: '8', shortcode: 'POST_8', caption: 'Motorruimte detailing ⚙️✨', likes: 67, comments: 8, type: 'image' },
+  { id: '1', shortcode: 'DTksnvLgh5L', caption: 'Interieur reiniging — van vuil naar showroom 🧼✨', likes: 124, comments: 18, type: 'reel' },
+  { id: '2', shortcode: 'DRKtW6Bgqrf', caption: 'Polijsten tot perfectie 💎🚗', likes: 203, comments: 31, type: 'reel' },
+  { id: '3', shortcode: 'DQrbLM5CGjN', caption: 'Klassieke Mercedes — clean & detailed 🖤', likes: 156, comments: 22, type: 'image' },
+  { id: '4', shortcode: 'DUOvwIZAmAt', caption: 'Mechanische reparatie — Audi RS6 🔧🏎️', likes: 145, comments: 19, type: 'reel' },
 ];
 
-// Set to true once real shortcodes are added above
-const USE_EMBEDS = false;
+const USE_EMBEDS = true;
 
 function InstagramPostEmbed({ shortcode }: { shortcode: string }) {
   return (
     <iframe
       src={`https://www.instagram.com/p/${shortcode}/embed/`}
-      className="h-full w-full border-0"
+      className="h-[480px] w-full border-0"
       loading="lazy"
       allowTransparency
       allow="encrypted-media"
@@ -185,11 +179,17 @@ export function InstagramFeed() {
 
         {/* Posts grid */}
         {USE_EMBEDS ? (
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 lg:gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {instaPosts.map((post) => (
-              <div key={post.id} className="aspect-square overflow-hidden rounded-xl border border-border">
+              <motion.div
+                key={post.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                className="overflow-hidden rounded-xl border border-border"
+              >
                 <InstagramPostEmbed shortcode={post.shortcode} />
-              </div>
+              </motion.div>
             ))}
           </div>
         ) : (
