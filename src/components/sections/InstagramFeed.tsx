@@ -149,8 +149,12 @@ export function InstagramFeed() {
             rel="noopener noreferrer"
             className="flex h-16 w-16 items-center justify-center rounded-full bg-linear-to-br from-[#833ab4] via-[#fd1d1d] to-[#fcb045] p-0.5"
           >
-            <div className="flex h-full w-full items-center justify-center rounded-full bg-surface-light">
-              <span className="text-lg font-bold text-text">S&D</span>
+            <div className="flex h-full w-full items-center justify-center rounded-full bg-surface-light overflow-hidden">
+              <img
+                src="/images/logo-no-text.svg"
+                alt="Shine & Drive"
+                className="h-10 w-10 object-contain"
+              />
             </div>
           </a>
 

@@ -51,10 +51,17 @@ export function Navbar() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-1 text-xl font-bold">
-            <span className="text-white">SHINE</span>
-            <span className="text-accent">&</span>
-            <span className="text-primary">DRIVE</span>
+          <Link to="/" className="flex items-center gap-2 text-xl font-bold">
+            <img
+              src="/images/logo-no-text.svg"
+              alt="Shine & Drive"
+              className="h-9 w-9"
+            />
+            <span className="hidden sm:inline">
+              <span className="text-white">SHINE</span>
+              <span className="text-accent"> & </span>
+              <span className="text-primary">DRIVE</span>
+            </span>
           </Link>
 
           {/* Desktop nav */}

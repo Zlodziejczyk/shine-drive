@@ -35,16 +35,16 @@ export function Hero() {
       <Container className="relative z-10 text-center">
         {/* Logo */}
         <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="mb-6"
+          className="mb-8"
         >
-          <span className="text-lg font-bold tracking-[0.3em] uppercase text-text-muted">
-            <span className="text-white">SHINE</span>
-            <span className="text-accent"> & </span>
-            <span className="text-primary">DRIVE</span>
-          </span>
+          <img
+            src="/images/logo.svg"
+            alt="Shine & Drive"
+            className="mx-auto h-28 w-auto sm:h-36 md:h-40"
+          />
         </motion.div>
 
         {/* Main heading */}

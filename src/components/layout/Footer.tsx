@@ -23,10 +23,12 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Column 1 - Logo + About */}
           <div>
-            <div className="mb-4 text-2xl font-bold">
-              <span className="text-white">SHINE</span>
-              <span className="text-accent"> & </span>
-              <span className="text-primary">DRIVE</span>
+            <div className="mb-4">
+              <img
+                src="/images/logo.svg"
+                alt="Shine & Drive"
+                className="h-16 w-auto"
+              />
             </div>
             <p className="mb-6 text-sm leading-relaxed text-text-muted">
               {t('footer.about')}
