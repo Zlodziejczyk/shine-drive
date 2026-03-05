@@ -46,14 +46,17 @@ const USE_EMBEDS = true;
 
 function InstagramPostEmbed({ shortcode }: { shortcode: string }) {
   return (
-    <iframe
-      src={`https://www.instagram.com/p/${shortcode}/embed/`}
-      className="h-[480px] w-full border-0"
-      loading="lazy"
-      allowTransparency
-      allow="encrypted-media"
-      title={`Instagram post ${shortcode}`}
-    />
+    <div className="relative h-[480px] w-full overflow-hidden">
+      <iframe
+        src={`https://www.instagram.com/p/${shortcode}/embed/`}
+        className="absolute inset-0 h-[calc(100%+64px)] w-full border-0"
+        loading="lazy"
+        scrolling="no"
+        allowTransparency
+        allow="encrypted-media"
+        title={`Instagram post ${shortcode}`}
+      />
+    </div>
   );
 }
 
@@ -187,9 +190,10 @@ export function InstagramFeed() {
             {instaPosts.map((post) => (
               <motion.div
                 key={post.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.4 }}
                 className="overflow-hidden rounded-xl border border-border"
               >
                 <InstagramPostEmbed shortcode={post.shortcode} />
