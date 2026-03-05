@@ -42,7 +42,7 @@ const instaPosts: InstaPost[] = [
   { id: '4', shortcode: 'DUOvwIZAmAt', caption: 'Mechanische reparatie — Audi RS6 🔧🏎️', likes: 145, comments: 19, type: 'reel' },
 ];
 
-const USE_EMBEDS = true;
+const USE_EMBEDS = false;
 
 function InstagramPostEmbed({ shortcode }: { shortcode: string }) {
   return (
