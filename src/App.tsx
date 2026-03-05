@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
+import { Analytics } from '@vercel/analytics/react';
 
 // Lazy-loaded pages
 const Home = lazy(() => import('@/pages/Home'));
@@ -35,6 +36,7 @@ export default function App() {
           </Route>
         </Routes>
       </Suspense>
+      <Analytics />
     </BrowserRouter>
   );
 }
