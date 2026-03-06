@@ -107,12 +107,12 @@ export function Footer() {
           <p>
             {t('common.websiteBy')}{' '}
             <a
-              href="https://polaris360.nl"
+              href="https://pushly.nl"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:text-primary-light"
             >
-              Polaris360
+              Pushly.nl
             </a>
           </p>
         </Container>
